@@ -98,6 +98,9 @@ public class ProposalEditPage extends TestBase {
     @FindBy(xpath = "//label[text()='Sunrun Credit Status']/following::td[1]/input")
     WebElement SunrunCreditStatus_Textbox;
 
+    @FindBy(xpath = "//label[text()='Date Approved']/following::td[1]/span/input")
+    WebElement DateApproved_Textbox;
+
     @FindBy(xpath = "//label[text()='External Id']/following::td[1]/input")
     WebElement ExternalId_Textbox;
 
@@ -291,6 +294,9 @@ public class ProposalEditPage extends TestBase {
     @FindBy(xpath = "//label[text()='Master ID-M']/following::td[1]/input")
     WebElement MasterIDM_Textbox;
 
+    @FindBy(xpath = "//label[text()='Date Issued']/following::td[1]//span/input")
+    WebElement DateIssued_Textbox;
+
     @FindBy(xpath = "//label[text()='Change Order?']/following::td[1]/input")
     WebElement ChangeOrder_Checkbox;
 
@@ -344,8 +350,9 @@ public class ProposalEditPage extends TestBase {
     }
 
 
-    public void FillProposalOverview(String Stage,String DealType,String AgreementType,String Deposit,String UpfrontPayment,String UpfrontPaymentAmout,String Year1TotalPriceperkWh,String AvoidedCostofPower, String ActualEscalator,String EPCPriceperWatt,String PriceWattforPricing,String GrossSystemPurchasePrice,String SRECTerm,String HomeType,String Prepaypaymentforelectricity,String RevisedSRSignoff,String ProductType,String CostStack,String ACHFeeEligible,String TSRF,String BillingType,String RoofWarrantyLength,String PGThresholdPer,String ParentProposalId,String BillingMethod,String SunrunCreditStatus,String ExternalId,String LengthofAgreement,String TurnkeyPurchasePrice ,String EPCPrice,String EstimatedGAAPCost,String CashPurchasePrice,String TitleCheckedDate,String SRSignoff,String EDPPhase) throws InterruptedException {
+    public void FillProposalOverview(String Stage,String DealType,String AgreementType,String Deposit,String UpfrontPayment,String UpfrontPaymentAmout,String Year1TotalPriceperkWh,String AvoidedCostofPower, String ActualEscalator,String EPCPriceperWatt,String PriceWattforPricing,String GrossSystemPurchasePrice,String SRECTerm,String HomeType,String Prepaypaymentforelectricity,String RevisedSRSignoff,String ProductType,String CostStack,String ACHFeeEligible,String TSRF,String BillingType,String RoofWarrantyLength,String PGThresholdPer,String ParentProposalId,String BillingMethod,String SunrunCreditStatus,String DateApproved,String ExternalId,String LengthofAgreement,String TurnkeyPurchasePrice ,String EPCPrice,String EstimatedGAAPCost,String CashPurchasePrice,String TitleCheckedDate,String SRSignoff,String EDPPhase) throws InterruptedException {
 
+        TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
         Select StageLst = new Select(Stage_Lst);
         StageLst.selectByVisibleText(Stage);
         TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
@@ -397,6 +404,7 @@ public class ProposalEditPage extends TestBase {
         ParentProposalId_Textbox.sendKeys(ParentProposalId);
         BillingMethod_Textbox.sendKeys(BillingMethod);
         SunrunCreditStatus_Textbox.sendKeys(SunrunCreditStatus);
+        DateApproved_Textbox.sendKeys(DateApproved);
         ExternalId_Textbox.sendKeys(ExternalId);
         LengthofAgreement_Textbox.sendKeys(LengthofAgreement);
         TurnkeyPurchasePrice_Textbox.sendKeys(TurnkeyPurchasePrice);
@@ -494,7 +502,7 @@ public class ProposalEditPage extends TestBase {
 
     }
 
-    public void Information(String ProposalID,String ProposalName,String ProductionEstimateSource,String HighestRoofStory,String ModeName,String MasterIDM) throws InterruptedException {
+    public void Information(String ProposalID,String ProposalName,String ProductionEstimateSource,String HighestRoofStory,String ModeName,String MasterIDM,String DateIssued) throws InterruptedException {
 
         ProposalID_Textbox.sendKeys(ProposalID);
         ProposalName_Textbox.sendKeys(ProposalName);
@@ -506,6 +514,7 @@ public class ProposalEditPage extends TestBase {
         HighestRoofStory_Textbox.sendKeys(HighestRoofStory);
         ModeName_Textbox.sendKeys(ModeName);
         MasterIDM_Textbox.sendKeys(MasterIDM);
+        DateIssued_Textbox.sendKeys(DateIssued);
         ChangeOrder_Checkbox.click();
 
         TestUtil.SelectRequiredObjectFromLookup("Opportunity", "Demo27370 Silent Water Way-89149");
