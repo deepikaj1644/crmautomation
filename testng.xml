@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SunRunTestDataCreation">
+
+    <listeners>
+        <listener class-name="com.qa.ExtentReportListener.ExtentReportListener" />
+    </listeners>
+
+    <test name="Leads Cretion Test Cases">
+        <classes>
+            <!--   <class name="com.crm.qa.testcases.LoginToApplicationTest"></class>-->
+            <!--     <class name="com.crm.qa.testcases.CreateNewLeadTest"></class>-->
+            <!--   <class name="com.crm.qa.testcases.CompleteProjectTask"></class>-->
+            <class name="com.crm.qa.testcases.AccountTest"></class>
+            <class name="com.crm.qa.testcases.ContactTest"></class>
+            <class name="com.crm.qa.testcases.OpportunityTest"></class>
+
+        </classes>
+    </test>
+</suite>
