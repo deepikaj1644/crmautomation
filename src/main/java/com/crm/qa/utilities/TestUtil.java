@@ -16,8 +16,10 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.*;
 
 import com.crm.qa.base.TestBase;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -30,7 +32,7 @@ public class TestUtil extends TestBase {
     public static int MEDIUM_WAIT_TIME = 30;
     public static int LARGE_WAIT_TIME = 60;
 
-    public static String TESTDATA_SHEET_PATH = "D:\\Deepika\\Automation Workspace\\Workspace\\SunRunCRMTest1\\SunrunProject\\src\\main\\java\\com\\crm\\qa\\testdata\\AutomationTestData.xlsx";
+    public static String TESTDATA_SHEET_PATH = "D:\\Deepika\\Sunrun\\crmautomation\\src\\main\\java\\com\\crm\\qa\\testdata\\AutomationTestData.xlsx";
 
     static Workbook book;
     static Sheet sheet;
@@ -201,6 +203,75 @@ public class TestUtil extends TestBase {
             Assert.assertTrue(driver.findElement(By.xpath("(//img[contains(@title,'" + ObjectLabel + "')]//ancestor::span/input)[1]")).isDisplayed());
 
     }
+
+    public static void UpdateRecordsFromBackend(String Query, String DBUrl) throws InterruptedException {
+
+
+        ((JavascriptExecutor) driver).executeScript("window.open()");
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+        driver.get("https://workbench.developerforce.com/login.php");
+
+        WebElement Environment_Lst = driver.findElement(By.id("oauth_env"));
+        TestUtil.WaitForElementToBeClickable(driver,Environment_Lst,2000);
+
+        Select EnvironmentLst = new Select(Environment_Lst);
+        EnvironmentLst.selectByVisibleText("Sandbox");
+        TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
+
+        WebElement TermsofService_Checkbox = driver.findElement(By.id("termsAccepted"));
+        TermsofService_Checkbox.click();
+
+        WebElement LoginWithSF_Btn = driver.findElement(By.xpath("//input[@value='Login with Salesforce']"));
+        LoginWithSF_Btn.click();
+
+        WebElement Utilities = driver.findElement(By.xpath("//span[text()='utilities']"));
+        TestUtil.WaitForElementToBeClickable(driver,Utilities,10000);
+        Actions action = new Actions(driver);
+        action.moveToElement(Utilities).build().perform();
+        WebElement ApexExecute_Lnk = driver.findElement(By.xpath("//a[text()='Apex Execute']"));
+        TestUtil.WaitForElementToBeClickable(driver,ApexExecute_Lnk,10000);
+        ApexExecute_Lnk.click();
+
+        WebElement ScriptInput_Textarea = driver.findElement(By.id("scriptInput"));
+        TestUtil.WaitForElementToBeVisible(driver,ScriptInput_Textarea,10000);
+
+        ScriptInput_Textarea.sendKeys(Query);
+
+        WebElement Execute_Btn = driver.findElement(By.xpath("//input[@value='Execute']"));
+        Execute_Btn.click();
+
+        WebElement ResultsText = driver.findElement(By.xpath("//div[contains(@id,'async-container')]/pre[contains(text(),'APEX_CODE')]"));
+        TestUtil.WaitForElementToBeVisible(driver,ResultsText,200000);
+
+        driver.switchTo().window(tabs.get(0));
+        TestUtil.Sleep(2);
+        TestUtil.refreshBrowserByJS(driver);
+        TestUtil.Sleep(5);
+
+
+    }
+
+    public static String GetRecordIDFromUrl(){
+
+        String CurrentUrl = driver.getCurrentUrl();
+        System.out.println(CurrentUrl);
+
+        String[] Urlsplit1 = CurrentUrl.split("//");
+        System.out.println(Urlsplit1[1]);
+
+        String[] Urlsplit2 = Urlsplit1[1].split("/");
+        System.out.println(Urlsplit2[1]);
+
+        String[] Urlsplit3 = Urlsplit2[1].split("\\?");
+        System.out.println(Urlsplit3[0]);
+
+        String RecordID = Urlsplit3[0].toString();
+        System.out.println(RecordID);
+        return RecordID;
+
+    }
+
 
 
 }

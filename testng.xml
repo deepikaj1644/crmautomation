@@ -6,15 +6,50 @@
         <listener class-name="com.qa.ExtentReportListener.ExtentReportListener" />
     </listeners>
 
-    <test name="Leads Cretion Test Cases">
-        <classes>
-            <!--   <class name="com.crm.qa.testcases.LoginToApplicationTest"></class>-->
-            <!--     <class name="com.crm.qa.testcases.CreateNewLeadTest"></class>-->
-            <!--   <class name="com.crm.qa.testcases.CompleteProjectTask"></class>-->
-            <class name="com.crm.qa.testcases.AccountTest"></class>
-            <class name="com.crm.qa.testcases.ContactTest"></class>
-            <class name="com.crm.qa.testcases.OpportunityTest"></class>
 
+
+     <test name="Account Test">
+         <classes>
+             <class name="com.crm.qa.testcases.AccountTest"/>
+         </classes>
+     </test>
+
+
+    <test name="Contact Test">
+         <classes>
+             <class name="com.crm.qa.testcases.ContactTest"/>
+         </classes>
+     </test>
+
+
+    <test name="Opportunity Test">
+         <classes>
+             <class name="com.crm.qa.testcases.OpportunityTest"/>
+         </classes>
+     </test>
+
+
+     <test name="Proposal Test">
+         <classes>
+             <class name="com.crm.qa.testcases.ProposalTest"/>
+         </classes>
+     </test>
+
+
+    <test name="Project Test">
+        <classes>
+            <class name="com.crm.qa.testcases.ProjectTest"/>
         </classes>
     </test>
-</suite>
+
+
+      <test name="Service Contract Test">
+          <classes>
+              <class name="com.crm.qa.testcases.ServiceContractTest"/>
+          </classes>
+      </test>
+
+
+
+
+ </suite>

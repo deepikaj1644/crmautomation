@@ -36,12 +36,11 @@ public class LoginPage extends TestBase {
 
     public HomePage login(String un, String pw) throws InterruptedException {
 
-        Username.sendKeys("deepika.joshi@sunrun.com.installops");
-        Password.sendKeys("Welcome@1234");
-        TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
+        Username.sendKeys(un);
+        Password.sendKeys(pw);
+        TestUtil.Sleep(TestUtil.SMALL_WAIT_TIME);
         LogInToSandbox.click();
-
-
+        TestUtil.Sleep(TestUtil.SMALL_WAIT_TIME);
 
         return new HomePage();
     }

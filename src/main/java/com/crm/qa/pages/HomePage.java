@@ -69,7 +69,7 @@ public class HomePage extends TestBase {
     public ProposalDetailsPage PerformGlobalSearch(String Item) throws InterruptedException {
         GlobalSearchBox.sendKeys(Item);
         TestUtil.ClickOn(driver,SearchButton,1000);
-        TestUtil.Sleep(20);
+        TestUtil.WaitForElementToBeClickable(driver,driver.findElement(By.xpath("//th/a[text()='" + Item + "']")),20000);
         try {
 
             TestUtil.ClickOn(driver,driver.findElement(By.xpath("//th/a[text()='" + Item + "']")),1000);

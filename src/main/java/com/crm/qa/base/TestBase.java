@@ -29,7 +29,7 @@ public class TestBase {
     public TestBase() {
         try {
             prop = new Properties();
-            FileInputStream ip = new FileInputStream("D:\\Deepika\\Automation Workspace\\Workspace\\SunRunCRMTest1\\SunrunProject\\src\\main\\java\\com\\crm\\qa\\config\\config.properties");
+            FileInputStream ip = new FileInputStream("D:\\Deepika\\Sunrun\\crmautomation\\src\\main\\java\\com\\crm\\qa\\config\\config.properties");
 
 
                 prop.load(ip);
@@ -61,6 +61,9 @@ public class TestBase {
             driver.get(prop.getProperty("Url"));
             driver.manage().window().maximize();
         }
+
+
+
     }
 
 

@@ -97,7 +97,7 @@ public class ContactEditPage extends TestBase {
         PageFactory.initElements(driver, this);
     }
 
-    public ContactDetailsPage EditContactDetails(String Fname, String LName, String AccName, String Phone, String Mobile, String CallCon, String Email, String LeadSource, String PrefConMethod, String MySunCustID, String MasterIDM, String MasterKey, String MailingStreet, String MailingCity, String MailingState, String MailingZip, String MailingCountry, String Country, String AddressStaStatus, String CreditSubmitted, String CreditReceived) throws InterruptedException {
+    public ContactDetailsPage EditContactDetails(String Fname, String LName, String AccName, String Phone, String Mobile, String CallCon, String Email, String LeadSource, String PrefConMethod, String MySunCustID, String MailingStreet, String MailingCity, String MailingState, String MailingZip, String MailingCountry, String Country, String AddressStaStatus, String CreditSubmitted, String CreditReceived) throws InterruptedException {
         FirstName_Textbox.sendKeys(Fname);
         TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
         LastName_Textbox.sendKeys(LName);
@@ -125,8 +125,8 @@ public class ContactEditPage extends TestBase {
         EmailProduct_Checkbox.click();
         EmailPromo_Checkbox.click();
         MySunCustID_Textbox.sendKeys(MySunCustID);
-        MasterIDM_Textbox.sendKeys(MasterIDM);
-        MasterKey_TextArea.sendKeys(MasterKey);
+       // MasterIDM_Textbox.sendKeys(MasterIDM);
+        //MasterKey_TextArea.sendKeys(MasterKey);
         MailingStreet_TextArea.sendKeys(MailingStreet);
         MailingCity_Textbox.sendKeys(MailingCity);
         MailingState_Textbox.sendKeys(MailingState);

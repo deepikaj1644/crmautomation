@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class ProjectTest extends TestBase {
+public class ProjectTest {
 
     LoginPage loginpage;
     HomePage homepage;
@@ -21,22 +21,23 @@ public class ProjectTest extends TestBase {
     ProjectPage projPage;
 
 
-    public ProjectTest()
+   /* public ProjectTest()
     {
         super();
-    }
+    }*/
 
-    @BeforeClass
+   /* @BeforeClass
     public void Setup() throws InterruptedException {
         initialization();
         loginpage = new LoginPage();
         homepage = loginpage.login(prop.getProperty("Username"), prop.getProperty("Password"));
     }
-
+*/
     @Test(priority = 1, description="Creates a new Project",enabled= true)
     public void VerifyCreateNewProjectTest() throws InterruptedException {
 
-        propDetailspage = homepage.PerformGlobalSearch("PK3KN99ZN205:001-K");
+        homepage = new HomePage();
+        propDetailspage = homepage.PerformGlobalSearch("PK3KN99ZN231:001-K");
 
         Assert.assertTrue(propDetailspage.ValidateVisibilityofEditButton());
         propEditpage = propDetailspage.ClickOnEditButton();
@@ -47,9 +48,9 @@ public class ProjectTest extends TestBase {
 
     }
 
-    @AfterClass
+    /*@AfterClass
     public void TearDown()
     {
-        driver.quit();
-    }
+       driver.quit();
+    }*/
 }
