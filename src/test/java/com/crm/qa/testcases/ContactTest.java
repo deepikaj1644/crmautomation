@@ -7,7 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class ContactTest extends TestBase {
+public class ContactTest{
 
     LoginPage loginpage;
     HomePage homepage;
@@ -16,20 +16,21 @@ public class ContactTest extends TestBase {
     ContactEditPage contacteditpage;
     ContactDetailsPage contactdetailspage;
 
-    public ContactTest()
+    /*public ContactTest()
     {
         super();
-    }
+    }*/
 
-    @BeforeClass
-    public void Setup() throws InterruptedException {
+   /*@BeforeClass
+   public void Setup() throws InterruptedException {
         initialization();
         loginpage = new LoginPage();
         homepage = loginpage.login(prop.getProperty("Username"), prop.getProperty("Password"));
-    }
+    }*/
 
     @Test(priority = 1, description="Creates a new Contact of type 'Residential'",enabled= true)
     public void CreateNewContactTest() throws InterruptedException {
+        homepage = new HomePage();
         objHomePage = homepage.ClickAnyTabOnHomePage("Contacts");
         Assert.assertTrue(homepage.ValidateTabLabelDisplayed("Contacts"),"Label Does not exist");
 
@@ -38,18 +39,18 @@ public class ContactTest extends TestBase {
 
         contacteditpage = new ContactEditPage();
 
-        contactdetailspage = contacteditpage.EditContactDetails("Demo2Kathy","Demo2Reaves","Demo27370 Silent Water Way-89149","(256) 283-3633","(256) 283-3633","Yes","Demo2Kathy.Reaves@yopmail.com","LGCY","Phone","8797360538262544207","484749319042","484749319042,0065C000005T3NXQA0,,Pay by Check","7370 Silent Water Way","Las Vegas","NV","89149","USA","NA","Standardization Required","8/5/2019 12:24 PM","8/5/2019 12:24 PM");
+        contactdetailspage = contacteditpage.EditContactDetails("Demo30Kathy","Demo30Reaves","Auto14Demo27370 Silent Water Way-89149","(256) 283-3633","(256) 283-3633","Yes","Demo30Kathy.Reaves@yopmail.com","LGCY","Phone","8797360538262544207","7370 Silent Water Way","Las Vegas","NV","89149","USA","NA","Standardization Required","8/5/2019 12:24 PM","8/5/2019 12:24 PM");
         Assert.assertTrue(contactdetailspage.ValidateVisibilityofEditButton());
         Assert.assertTrue(contactdetailspage.ValidateAccountDetailLabel());
 
 
     }
 
-    @AfterClass
+   /* @AfterClass
     public void TearDown()
     {
         driver.quit();
-    }
+    }*/
 
 
 }

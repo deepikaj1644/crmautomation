@@ -31,4 +31,10 @@ public class OpportunityDetailsPage extends TestBase {
         TestUtil.WaitForElementToBeVisible(driver,EditBtn,50);
         return EditBtn.isDisplayed();
     }
+
+    public OpportunityEditPage ClickOnEditButton()
+    {
+        EditBtn.click();
+        return new OpportunityEditPage();
+    }
 }

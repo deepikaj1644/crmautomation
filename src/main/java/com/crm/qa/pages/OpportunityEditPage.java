@@ -391,7 +391,7 @@ public class OpportunityEditPage extends TestBase {
 
         TestUtil.SelectRequiredObjectFromLookup("Sales Rep", "Ray Abati");
         TestUtil.SelectRequiredObjectFromLookup("Install Branch", "Las Vegas");
-        TestUtil.SelectRequiredObjectFromLookup("Account Name", "Demo17370 Silent Water Way-89149");
+        TestUtil.SelectRequiredObjectFromLookup("Account Name", "Auto14Demo27370 Silent Water Way-89149");
         TestUtil.SelectRequiredObjectFromLookup("PV Designer", "Laura Wood");
         TestUtil.SelectRequiredObjectFromLookup("Project Coordinator", "Laura Wood");
         TestUtil.SelectRequiredObjectFromLookup("Sales Organization Name", "LGCY Power, LLC");
@@ -527,11 +527,11 @@ public class OpportunityEditPage extends TestBase {
 
     }
 
-    public void SystemInformation(String OpportunityName, String DealId,String MasterIDM,String OpportunitySourceType,String ExternalSource,String NationalBranchConstant,String ProspectId,String LocalBranchConstant,String LocalSystemSizeExponent,String OverheadPerWatt,String OverheadPerProject) throws InterruptedException{
+    public void SystemInformation(String OpportunityName,String OpportunitySourceType,String ExternalSource,String NationalBranchConstant,String ProspectId,String LocalBranchConstant,String LocalSystemSizeExponent,String OverheadPerWatt,String OverheadPerProject) throws InterruptedException{
 
         OpportunityName_Textbox.sendKeys(OpportunityName);
-        DealId_Textbox.sendKeys(DealId);
-        MasterIDM_Textbox.sendKeys(MasterIDM);
+        //DealId_Textbox.sendKeys(DealId);
+        //MasterIDM_Textbox.sendKeys(MasterIDM);
 
         Select OpportunitySourceTypeLst = new Select(OpportunitySourceType_Lst);
         OpportunitySourceTypeLst.selectByVisibleText(OpportunitySourceType);
@@ -593,8 +593,19 @@ public class OpportunityEditPage extends TestBase {
         TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
         InstallationOffice_Textbox.sendKeys(InstallationOffice);
 
-        TestUtil.ClickOn(driver,SaveBtn,20);
+        TestUtil.ClickOn(driver,SaveBtn,90000);
 
+        return new OpportunityDetailsPage();
+
+    }
+
+    public OpportunityDetailsPage UpdateOppStageToClosedLost() throws InterruptedException {
+
+        TestUtil.WaitForElementToBeClickable(driver,Stage_Lst,80000);
+        Select StageLst = new Select(Stage_Lst);
+        StageLst.selectByVisibleText("11. Closed Lost");
+        TestUtil.Sleep(2);
+        TestUtil.ClickOn(driver,SaveBtn,90000);
         return new OpportunityDetailsPage();
 
     }

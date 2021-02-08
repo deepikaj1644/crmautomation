@@ -19,21 +19,22 @@ public class AccountTest extends TestBase {
     String sheetName = "Residential_Account";
 
 
-    public AccountTest()
+   /*public AccountTest()
     {
         super();
-    }
+    }*/
 
     @DataProvider public Object[][] getLeadTestData() {
         Object data[][] = TestUtil.getTestData(sheetName);
         return data;
     }
 
-    @BeforeClass
+    @BeforeSuite
     public void Setup() throws InterruptedException {
         initialization();
         loginpage = new LoginPage();
         homepage = loginpage.login(prop.getProperty("Username"), prop.getProperty("Password"));
+        System.out.println("Account Test begins...");
     }
 
    @Test(priority = 1, description="Creates a new Account of type 'Residential'",enabled= true)
@@ -47,13 +48,13 @@ public class AccountTest extends TestBase {
 
         accEditpage = new AccountEditPage();
 
-        accDetailspage = accEditpage.CreateNewResidentialAccount("Demo27370 Silent Water Way-89149","No","Standardized","Google Maps","USA:NV:LAS VEGAS:SILENT WATER WAY:7370:89149","36.295095400000000","-115.307233100000000","ROOFTOP","PST","true","702","04","018","004");
+        accDetailspage = accEditpage.CreateNewResidentialAccount("Auto14Demo27370 Silent Water Way-89149","No","Standardized","Google Maps","USA:NV:LAS VEGAS:SILENT WATER WAY:7370:89149","36.295095400000000","-115.307233100000000","ROOFTOP","PST","true","702","04","018","004");
         Assert.assertTrue(accDetailspage.ValidateVisibilityofEditButton());
 
-        homepage.PerformGlobalSearch("Demo27370 Silent Water Way-89149");
+        homepage.PerformGlobalSearch("Auto14Demo27370 Silent Water Way-89149");
         accDetailspage = new AccountDetailsPage();
         Assert.assertTrue(accDetailspage.ValidateAccountDetailLabel());
-        accDetailspage.FillAddressInformationResidentialAccount("Demo27370 Silent Water Way","Las Vegas","NV","89149","USA","Clark","(256) 283-3633","Las Vegas","Clark","REAVES", "REAVES KATHRYN RUTH (TE)","SFR (single family residence)","CLEARWATER EST PLAT BOOK 134 PAGE 9 LOT 9 BLOCK 1","TRUST","125-18-410-009","LAS VEGAS");
+        accDetailspage.FillAddressInformationResidentialAccount("Auto14Demo27370 Silent Water Way","Las Vegas","NV","89149","USA","Clark","(256) 283-3633","Las Vegas","Clark","REAVES", "REAVES KATHRYN RUTH (TE)","SFR (single family residence)","CLEARWATER EST PLAT BOOK 134 PAGE 9 LOT 9 BLOCK 1","TRUST","125-18-410-009","LAS VEGAS");
         Assert.assertTrue(accDetailspage.ValidateAccountDetailLabel());
 
     }
@@ -127,10 +128,11 @@ public class AccountTest extends TestBase {
 
 
 
+  @AfterSuite
+   public void TearDown()
+   {
+       driver.quit();
+       //System.out.println("Account Test ends...");
+   }
 
-    @AfterClass
-    public void TearDown()
-    {
-        driver.quit();
-    }
 }

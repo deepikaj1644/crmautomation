@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SunRunTestDataCreation">
+
+    <listeners>
+        <listener class-name="com.qa.ExtentReportListener.ExtentReportListener" />
+    </listeners>
+
+
+    <test name="D2H Lead Creation Test">
+        <classes>
+            <class name="com.crm.qa.testcases.CreateNewProspect_D2H"/>
+        </classes>
+    </test>
+
+
+
+</suite>

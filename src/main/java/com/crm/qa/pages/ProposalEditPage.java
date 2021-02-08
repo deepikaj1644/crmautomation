@@ -513,7 +513,7 @@ public class ProposalEditPage extends TestBase {
 
     }
 
-    public void Information(String ProposalID,String ProposalName,String ProductionEstimateSource,String HighestRoofStory,String ModeName,String MasterIDM,String DateIssued) throws InterruptedException {
+    public void Information(String ProposalID,String ProposalName,String ProductionEstimateSource,String HighestRoofStory,String ModeName,String DateIssued) throws InterruptedException {
 
         ProposalID_Textbox.sendKeys(ProposalID);
         ProposalName_Textbox.sendKeys(ProposalName);
@@ -524,11 +524,11 @@ public class ProposalEditPage extends TestBase {
 
         HighestRoofStory_Textbox.sendKeys(HighestRoofStory);
         ModeName_Textbox.sendKeys(ModeName);
-        MasterIDM_Textbox.sendKeys(MasterIDM);
+        //MasterIDM_Textbox.sendKeys(MasterIDM);
         DateIssued_Textbox.sendKeys(DateIssued);
         ChangeOrder_Checkbox.click();
 
-        TestUtil.SelectRequiredObjectFromLookup("Opportunity", "Demo27370 Silent Water Way-89149");
+        TestUtil.SelectRequiredObjectFromLookup("Opportunity", "Auto14Demo27370 Silent Water Way-89149");
 
 
     }
@@ -569,10 +569,14 @@ public class ProposalEditPage extends TestBase {
     }
 
 
-    public void CreateNewProject()
-    {
+    public void CreateNewProject() throws InterruptedException {
+        TestUtil.WaitForElementToBeClickable(driver,CreateWorkflowProject_Checkbox,20000);
+        TestUtil.ScrollIntoView(CreateWorkflowProject_Checkbox,driver);
+        TestUtil.Sleep(2);
         CreateWorkflowProject_Checkbox.click();
+        TestUtil.Sleep(3);
         TestUtil.ClickOn(driver,SaveBtn,20);
+        TestUtil.Sleep(3);
     }
 
 

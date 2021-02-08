@@ -14,6 +14,9 @@ public class ServiceContractDetailsPage extends TestBase {
     @FindBy(xpath="//input[@name='edit' and @type='button']")
     WebElement EditBtn;
 
+    @FindBy(xpath="//th[text()='Service Contract Event Name']/following::th/a[contains(text(),'SCA')]")
+    WebElement ServiceContractEvent_Lnk;
+
     public ServiceContractDetailsPage()
     {
         PageFactory.initElements(driver, this);
@@ -29,6 +32,13 @@ public class ServiceContractDetailsPage extends TestBase {
     {
         TestUtil.WaitForElementToBeVisible(driver,EditBtn,50);
         return EditBtn.isDisplayed();
+    }
+
+    public ServiceContractEventDetailsPage ClickOnServiceContractEventRecord()
+    {
+        TestUtil.WaitForElementToBeVisible(driver,EditBtn,50000);
+        TestUtil.ClickOn(driver,ServiceContractEvent_Lnk,50000);
+        return new ServiceContractEventDetailsPage();
     }
 
 }
