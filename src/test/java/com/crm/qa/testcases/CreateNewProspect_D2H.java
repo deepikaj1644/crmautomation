@@ -19,45 +19,62 @@ public class CreateNewProspect_D2H extends TestBase {
     SplatProspectEditPage splatprospecteditpage;
     ScheduleApptPage scheduleapptpage;
     SunrunSalesLoginPage sunrunsalesloginpage;
-    String sheetName = "D2HLeadCreation";
-
-    @DataProvider public Object[][] getD2HLeadTestData() {
-        Object data[][] = TestUtil.getTestData(sheetName);
-        return data;
-    }
 
 
 
     @BeforeSuite
     public void Setup() throws InterruptedException {
+
         initialization();
-        splatloginpage = new SplatLoginPage();
-        sunrunsalesloginpage = splatloginpage.loginToSplatAsPartner();
-        sunrunsalesloginpage.loginToSplatAsPartner(prop.getProperty("Username_D2H_User1"), prop.getProperty("Password_D2H_User1"));
 
     }
 
-    @Test(priority = 1, description="Create New Lead from Splat As Partner(D2H)",enabled= true, invocationCount = 1,dataProvider = "getD2HLeadTestData")
-    public void CreateNewLeadTest(String HomeAddress,String FirstName,String LastName,String EmailAddress,String MobilePhone,String LandlinePhone,String AvgMonthlyBill, String HomeType,String RoofType, String HOA,String Ownership,String InterestedInBB) throws InterruptedException, AWTException {
+
+    @DataProvider public Object[][] getD2HLeadCreateTestData() {
+
+       Object data[][] = TestUtil.getTestData("D2HLeadCreation");
+       return data;
+    }
+
+
+    @Test(priority = 1, description="Create New Lead from Splat As Partner(D2H)",enabled= true, invocationCount = 1,dataProvider = "getD2HLeadCreateTestData")
+    public void CreateNewLeadTest(String Username,String Password,String HomeAddress,String FirstName,String LastName,String EmailAddress,String MobilePhone,String LandlinePhone,String AvgMonthlyBill, String HomeType,String RoofType, String HOA,String Ownership,String InterestedInBB) throws InterruptedException, AWTException {
+
+        splatloginpage = new SplatLoginPage();
+        sunrunsalesloginpage = splatloginpage.loginToSplatAsPartner();
+        sunrunsalesloginpage.loginToSplatAsPartner(Username,Password);
 
         splathomepage = new SplatHomePage();
         splathomepage.ClickOnDispositionLater();
         splatprospecteditpage = splathomepage.ClickOnCreateProspect();
-        //splatprospecteditpage.CreateNewProspectByPartner("1248 Broadway, San Francisco, CA 94109, USA","D2H_Lead5","D2H_Lead5","D2H_Lead5@yopmail.com","(425) 301-5432","(425) 301-5432","$251-300","Detached single family home","Comp Shingle","No","Own","No");
+
         splatprospecteditpage.CreateNewProspectByPartner(HomeAddress,FirstName,LastName,EmailAddress,MobilePhone,LandlinePhone,AvgMonthlyBill,HomeType,RoofType,HOA,Ownership,InterestedInBB);
         String HomeAdd = HomeAddress;
         splathomepage = splatprospecteditpage.ClickOnGoBack();
+        splatloginpage = splathomepage.LogOutFromSplat();
+        splatloginpage.ValidateLoginPage();
 
     }
 
-    @Test(priority = 2, description="Search Lead in Splat As Partner(D2H)",enabled= true, invocationCount = 1,dataProvider = "getD2HLeadTestData")
-    public void SearchLeadTest(String HomeAddress) throws InterruptedException {
 
-        splatprospecteditpage = splathomepage.SearchProspectByAddress(HomeAddress);
+    @DataProvider public Object[][] getD2HLeadSearchTestData() {
+
+        Object data[][] = TestUtil.getTestData("D2HLeadSearch");
+        return data;
+    }
+
+    @Test(priority = 2, description="Search Lead in Splat As Partner(D2H)",enabled= true, invocationCount = 1, dataProvider = "getD2HLeadSearchTestData")
+    public void SearchLeadTest(String Username, String Password, String HomeAddress,Boolean Visibility) throws InterruptedException {
+
+        splatloginpage = new SplatLoginPage();
+        sunrunsalesloginpage = splatloginpage.loginToSplatAsPartner();
+        sunrunsalesloginpage.loginToSplatAsPartner(Username,Password);
+        splatprospecteditpage = splathomepage.ValidateProspectVisibility(HomeAddress,Visibility);
         splatprospecteditpage.ValidateProspectEditPage();
+        splatloginpage = splathomepage.LogOutFromSplat();
+        splatloginpage.ValidateLoginPage();
 
     }
-
 
 
     @AfterSuite

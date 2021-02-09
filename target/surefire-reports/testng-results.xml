@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Command line suite" duration-ms="285965" started-at="2020-05-22T16:19:32 IST" finished-at="2020-05-22T16:24:18 IST">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="285965" started-at="2020-05-22T16:19:32 IST" finished-at="2020-05-22T16:24:18 IST">
+      <class name="com.crm.qa.testcases.CreateNewLeadTest">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com.crm.qa.testcases.CreateNewLeadTest@25bbe1b6]" name="Setup" is-config="true" duration-ms="22538" started-at="2020-05-22T16:21:50 IST" finished-at="2020-05-22T16:22:13 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Setup -->
+        <test-method status="PASS" signature="VerifyCreateNewLead(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:com.crm.qa.testcases.CreateNewLeadTest@25bbe1b6]" name="VerifyCreateNewLead" duration-ms="56319" started-at="2020-05-22T16:22:13 IST" data-provider="getLeadTestData" finished-at="2020-05-22T16:23:09 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Bulk Mail]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1. Acquisition]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[System Generated]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Inbound Phone]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[AutoF1]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[AutoL1]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Autocomp1]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[AutoStreet1]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[AutoCity1]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[AutoState1]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[AutoZip1]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[USA]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyCreateNewLead -->
+        <test-method status="PASS" signature="TearDown()[pri:0, instance:com.crm.qa.testcases.CreateNewLeadTest@25bbe1b6]" name="TearDown" is-config="true" duration-ms="682" started-at="2020-05-22T16:23:09 IST" finished-at="2020-05-22T16:23:10 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDown -->
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com.crm.qa.testcases.CreateNewLeadTest@25bbe1b6]" name="Setup" is-config="true" duration-ms="22701" started-at="2020-05-22T16:23:10 IST" finished-at="2020-05-22T16:23:33 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Setup -->
+        <test-method status="PASS" signature="VerifyCreateNewLead(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:com.crm.qa.testcases.CreateNewLeadTest@25bbe1b6]" name="VerifyCreateNewLead" duration-ms="20220" started-at="2020-05-22T16:23:33 IST" data-provider="getLeadTestData" finished-at="2020-05-22T16:23:53 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Bulk Mail]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1. Acquisition]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[System Generated]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Inbound Phone]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[AutoF2]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[AutoL2]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Autocomp2]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[AutoStreet2]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[AutoCity2]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[AutoState2]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[AutoZip2]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[USA]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyCreateNewLead -->
+        <test-method status="PASS" signature="TearDown()[pri:0, instance:com.crm.qa.testcases.CreateNewLeadTest@25bbe1b6]" name="TearDown" is-config="true" duration-ms="685" started-at="2020-05-22T16:23:53 IST" finished-at="2020-05-22T16:23:53 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDown -->
+      </class> <!-- com.crm.qa.testcases.CreateNewLeadTest -->
+      <class name="com.crm.qa.testcases.AccountTest">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com.crm.qa.testcases.AccountTest@ff5b51f]" name="Setup" is-config="true" duration-ms="47256" started-at="2020-05-22T16:19:32 IST" finished-at="2020-05-22T16:20:19 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Setup -->
+        <test-method status="PASS" signature="VerifyCreateNewAccountTest()[pri:1, instance:com.crm.qa.testcases.AccountTest@ff5b51f]" name="VerifyCreateNewAccountTest" duration-ms="25139" started-at="2020-05-22T16:20:19 IST" finished-at="2020-05-22T16:20:44 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyCreateNewAccountTest -->
+        <test-method status="PASS" signature="VerifyEditAddressInformationTest()[pri:2, instance:com.crm.qa.testcases.AccountTest@ff5b51f]" name="VerifyEditAddressInformationTest" duration-ms="64656" started-at="2020-05-22T16:20:44 IST" finished-at="2020-05-22T16:21:49 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyEditAddressInformationTest -->
+        <test-method status="PASS" signature="TearDown()[pri:0, instance:com.crm.qa.testcases.AccountTest@ff5b51f]" name="TearDown" is-config="true" duration-ms="765" started-at="2020-05-22T16:21:49 IST" finished-at="2020-05-22T16:21:50 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDown -->
+      </class> <!-- com.crm.qa.testcases.AccountTest -->
+      <class name="com.crm.qa.testcases.LoginToApplicationTest">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com.crm.qa.testcases.LoginToApplicationTest@5702b3b1]" name="Setup" is-config="true" duration-ms="8246" started-at="2020-05-22T16:23:53 IST" finished-at="2020-05-22T16:24:02 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Setup -->
+        <test-method status="PASS" signature="ValidateSFLogo()[pri:1, instance:com.crm.qa.testcases.LoginToApplicationTest@5702b3b1]" name="ValidateSFLogo" duration-ms="15513" started-at="2020-05-22T16:24:02 IST" finished-at="2020-05-22T16:24:17 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateSFLogo -->
+        <test-method status="PASS" signature="TearDown()[pri:0, instance:com.crm.qa.testcases.LoginToApplicationTest@5702b3b1]" name="TearDown" is-config="true" duration-ms="649" started-at="2020-05-22T16:24:17 IST" finished-at="2020-05-22T16:24:18 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDown -->
+      </class> <!-- com.crm.qa.testcases.LoginToApplicationTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>

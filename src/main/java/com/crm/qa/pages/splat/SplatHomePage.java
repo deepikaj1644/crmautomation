@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class SplatHomePage extends TestBase {
 
@@ -25,6 +26,14 @@ public class SplatHomePage extends TestBase {
 
     @FindBy(xpath="//a[text()='View Prospect']")
     WebElement ViewProspect_Link;
+
+    @FindBy(xpath="//div[@class='user-button']")
+    WebElement User_Btn;
+
+    @FindBy(xpath="//button[text()='Sign out']")
+    WebElement SignOut_Btn;
+
+
 
     public SplatHomePage()
     {
@@ -63,11 +72,46 @@ public class SplatHomePage extends TestBase {
         Search_Textbox.click();
         Search_Textbox.sendKeys(HomeAddress);
         TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
-        driver.findElement(By.xpath("//div[text()='"+ HomeAddress +"']")).click();
+
+        driver.findElement(By.xpath("//div[text()='" + HomeAddress + "']")).click();
+
         TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
         ViewProspect_Link.click();
+
         TestUtil.Sleep(TestUtil.LARGE_WAIT_TIME);
         return new SplatProspectEditPage();
+
+
+    }
+
+    public SplatProspectEditPage ValidateProspectVisibility(String HomeAddress, boolean ExpVisibility) throws InterruptedException {
+
+        TestUtil.WaitForElementToBeClickable(driver,Search_Textbox,2000);
+        Search_Textbox.click();
+        Search_Textbox.sendKeys(HomeAddress);
+        TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
+
+        boolean ActVisibility = driver.findElement(By.xpath("//div[text()='" + HomeAddress + "']")).isDisplayed();
+        Assert.assertEquals(ActVisibility,ExpVisibility);
+
+        TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
+        ViewProspect_Link.click();
+
+        TestUtil.Sleep(TestUtil.LARGE_WAIT_TIME);
+        return new SplatProspectEditPage();
+
+
+    }
+
+    public SplatLoginPage LogOutFromSplat() throws InterruptedException {
+
+        TestUtil.WaitForElementToBeClickable(driver,User_Btn,90000);
+        User_Btn.click();
+        TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
+        SignOut_Btn.click();
+        TestUtil.Sleep(TestUtil.SMALL_WAIT_TIME);
+
+        return new SplatLoginPage();
 
 
     }

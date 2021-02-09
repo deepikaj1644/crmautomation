@@ -1,0 +1,4 @@
+com\crm\qa\testcases\LoginToApplicationTest.class
+com\crm\qa\testcases\AccountTest.class
+com\crm\qa\testcases\CompleteProjectTask.class
+com\crm\qa\testcases\CreateNewLeadTest.class
