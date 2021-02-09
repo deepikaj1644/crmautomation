@@ -38,5 +38,11 @@ public class SplatLoginPage extends TestBase {
         return new SunrunSalesLoginPage();
     }
 
+    public void ValidateLoginPage() throws InterruptedException {
+
+        TestUtil.WaitForElementToBeClickable(driver,SalesPartnerLogin_Btn,80000);
+
+    }
+
 }
 

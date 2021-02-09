@@ -1,0 +1,15 @@
+com\crm\qa\pages\AccountDetailsPage.class
+com\crm\qa\pages\TaskPage.class
+com\crm\qa\pages\ObjectHomePage.class
+com\crm\qa\utilities\TestUtil.class
+com\crm\qa\pages\HomePage.class
+com\crm\qa\pages\ProjectPage.class
+com\qa\ExtentReportListener\ExtentReportListener.class
+com\crm\qa\pages\LeadsPage.class
+com\crm\qa\pages\LoginPage.class
+com\crm\qa\utilities\WebEventListener.class
+com\crm\qa\pages\AllTabsPage.class
+com\crm\qa\pages\LeadEditPage.class
+com\crm\qa\base\TestBase.class
+com\crm\qa\pages\AccountEditPage.class
+com\crm\qa\pages\SelectObjectRecordTypePage.class
