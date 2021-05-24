@@ -84,7 +84,7 @@ public class SplatHomePage extends TestBase {
 
     }
 
-    public SplatProspectEditPage ValidateProspectVisibility(String HomeAddress, boolean ExpVisibility) throws InterruptedException {
+    public SplatProspectEditPage ValidateProspectVisibility(String HomeAddress) throws InterruptedException {
 
         TestUtil.WaitForElementToBeClickable(driver,Search_Textbox,2000);
         Search_Textbox.click();
@@ -92,7 +92,7 @@ public class SplatHomePage extends TestBase {
         TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
 
         boolean ActVisibility = driver.findElement(By.xpath("//div[text()='" + HomeAddress + "']")).isDisplayed();
-        Assert.assertEquals(ActVisibility,ExpVisibility);
+        //Assert.assertEquals(ActVisibility,ExpVisibility);
 
         TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
         ViewProspect_Link.click();

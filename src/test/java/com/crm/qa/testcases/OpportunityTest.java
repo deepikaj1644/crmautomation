@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class OpportunityTest{
+public class OpportunityTest extends TestBase{
 
     LoginPage loginpage;
     HomePage homepage;
@@ -31,17 +31,17 @@ public class OpportunityTest{
         return data;
     }
 
-   /* @BeforeClass
+   @BeforeClass
     public void Setup() throws InterruptedException {
         initialization();
         loginpage = new LoginPage();
         homepage = loginpage.login(prop.getProperty("Username"), prop.getProperty("Password"));
     }
-*/
-    @Test(priority = 1, description="Creates a new Opportunity of type 'Residential'",enabled= false)
+
+    @Test(priority = 1, description="Creates a new Opportunity of type 'Residential'",enabled= true)
     public void VerifyCreateNewResidentialAccountTest() throws InterruptedException {
 
-        homepage = new HomePage();
+        //homepage = new HomePage();
         objHomePage = homepage.ClickAnyTabOnHomePage("Opportunities");
         Assert.assertTrue(homepage.ValidateTabLabelDisplayed("Opportunities"),"Label Does not exist");
 
@@ -57,7 +57,7 @@ public class OpportunityTest{
         oppEditpage.DesignInformation("Design","High","Open");
         oppEditpage.RetailLeadGeneration("7/31/2019");
         oppEditpage.MarketAssignmentInfo();
-        oppEditpage.SystemInformation("Auto14Demo27370 Silent Water Way-89149","BB","BrightPath Mobile","1.3000000000","561404569136","1.2263900000","-0.2642600000","0.2700000000","0.0000000000");
+        oppEditpage.SystemInformation("Auto1Demo27370 Silent Water Way-89149","BB","BrightPath Mobile","1.3000000000","561404569136","1.2263900000","-0.2642600000","0.2700000000","0.0000000000");
         oppEditpage.SiteAudit("7/31/2019","12/10/2020 7:00 AM","12/9/2020");
         oppEditpage.OracleData("CUSTOMER OWNED-CASH 2","5,670","MHAUPT","8/1/2019","8/8/2019","8/13/2019","661R-370REAV","Active","9/20/2019");
 
@@ -67,7 +67,7 @@ public class OpportunityTest{
 
     }
 
-    @Test(priority = 1, description="Makes Opportunity Stage to Closed Lost'",enabled= true)
+    @Test(priority = 1, description="Makes Opportunity Stage to Closed Lost'",enabled= false)
     public void MakeOpportunityInactiveTest() throws InterruptedException {
 
         homepage = new HomePage();

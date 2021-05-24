@@ -6,7 +6,7 @@ import com.crm.qa.utilities.TestUtil;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class ServiceContractTest {
+public class ServiceContractTest extends TestBase {
 
     LoginPage loginpage;
     HomePage homepage;
@@ -17,17 +17,17 @@ public class ServiceContractTest {
     ProposalDetailsPage propDetailspage;
     ServiceContractEventDetailsPage SCEDetailsPage;
 
-    /*public ServiceContractTest()
+    public ServiceContractTest()
     {
         super();
-    }*/
+    }
 
-    /*@BeforeClass
+    @BeforeClass
     public void Setup() throws InterruptedException {
         initialization();
         loginpage = new LoginPage();
         homepage = loginpage.login(prop.getProperty("Username"), prop.getProperty("Password"));
-    }*/
+    }
 
     @Test
     public void CreateNewServiceContractTest() throws InterruptedException {
@@ -46,11 +46,11 @@ public class ServiceContractTest {
         SCEDetailsPage.ValidateServiceContractEventDetailLabel();
 
     }
-/*
+
     @AfterClass
     public void TearDown()
     {
         driver.quit();
-    }*/
+    }
 
 }

@@ -22,7 +22,7 @@ public class CreateNewProspect_D2H extends TestBase {
 
 
 
-    @BeforeSuite
+    @BeforeTest
     public void Setup() throws InterruptedException {
 
         initialization();
@@ -35,6 +35,8 @@ public class CreateNewProspect_D2H extends TestBase {
        Object data[][] = TestUtil.getTestData("D2HLeadCreation");
        return data;
     }
+
+
 
 
     @Test(priority = 1, description="Create New Lead from Splat As Partner(D2H)",enabled= true, invocationCount = 1,dataProvider = "getD2HLeadCreateTestData")
@@ -57,19 +59,20 @@ public class CreateNewProspect_D2H extends TestBase {
     }
 
 
+
     @DataProvider public Object[][] getD2HLeadSearchTestData() {
 
-        Object data[][] = TestUtil.getTestData("D2HLeadSearch");
-        return data;
+        Object data1[][] = TestUtil.getTestData("D2HLeadSearch");
+        return data1;
     }
 
     @Test(priority = 2, description="Search Lead in Splat As Partner(D2H)",enabled= true, invocationCount = 1, dataProvider = "getD2HLeadSearchTestData")
-    public void SearchLeadTest(String Username, String Password, String HomeAddress,Boolean Visibility) throws InterruptedException {
+    public void SearchLeadTest(String Username, String Password, String HomeAddress) throws InterruptedException {
 
         splatloginpage = new SplatLoginPage();
         sunrunsalesloginpage = splatloginpage.loginToSplatAsPartner();
         sunrunsalesloginpage.loginToSplatAsPartner(Username,Password);
-        splatprospecteditpage = splathomepage.ValidateProspectVisibility(HomeAddress,Visibility);
+        splatprospecteditpage = splathomepage.ValidateProspectVisibility(HomeAddress);
         splatprospecteditpage.ValidateProspectEditPage();
         splatloginpage = splathomepage.LogOutFromSplat();
         splatloginpage.ValidateLoginPage();
@@ -77,7 +80,7 @@ public class CreateNewProspect_D2H extends TestBase {
     }
 
 
-    @AfterSuite
+    @AfterTest
     public void TearDown()
     {
         driver.quit();

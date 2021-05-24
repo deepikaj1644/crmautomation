@@ -273,5 +273,56 @@ public class TestUtil extends TestBase {
     }
 
 
+    public static String FetchRecordIDFromBackend(String Query, String DBUrl) throws InterruptedException {
+
+
+        ((JavascriptExecutor) driver).executeScript("window.open()");
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+        driver.get("https://workbench.developerforce.com/login.php");
+
+        WebElement Environment_Lst = driver.findElement(By.id("oauth_env"));
+        TestUtil.WaitForElementToBeClickable(driver,Environment_Lst,2000);
+
+        Select EnvironmentLst = new Select(Environment_Lst);
+        EnvironmentLst.selectByVisibleText("Sandbox");
+        TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
+
+        WebElement TermsofService_Checkbox = driver.findElement(By.id("termsAccepted"));
+        TermsofService_Checkbox.click();
+
+        WebElement LoginWithSF_Btn = driver.findElement(By.xpath("//input[@value='Login with Salesforce']"));
+        LoginWithSF_Btn.click();
+
+        WebElement Queries = driver.findElement(By.xpath("//span[text()='queries']"));
+        TestUtil.WaitForElementToBeClickable(driver,Queries,10000);
+        Actions action = new Actions(driver);
+        action.moveToElement(Queries).build().perform();
+        WebElement SOQLQuery_Lnk = driver.findElement(By.xpath("//a[text()='SOQL Query']"));
+        TestUtil.WaitForElementToBeClickable(driver,SOQLQuery_Lnk,10000);
+        SOQLQuery_Lnk.click();
+
+        WebElement SoqlQuery_Textarea = driver.findElement(By.id("soql_query_textarea"));
+        TestUtil.WaitForElementToBeVisible(driver,SoqlQuery_Textarea,10000);
+
+        SoqlQuery_Textarea.sendKeys(Query);
+
+        WebElement Query_Btn = driver.findElement(By.xpath("//input[@value='Query' and @type='submit']"));
+        Query_Btn.click();
+
+        WebElement ResultsText = driver.findElement(By.xpath("//*[contains(text(),'Query Results')]/following::a"));
+        TestUtil.WaitForElementToBeVisible(driver,ResultsText,200000);
+        String RecordID = ResultsText.getText();
+
+        driver.switchTo().window(tabs.get(0));
+        TestUtil.Sleep(2);
+        TestUtil.refreshBrowserByJS(driver);
+        TestUtil.Sleep(5);
+
+        return RecordID;
+
+
+    }
+
 
 }

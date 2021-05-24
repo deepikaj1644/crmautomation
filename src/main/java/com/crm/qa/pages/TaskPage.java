@@ -36,4 +36,12 @@ public class TaskPage extends TestBase {
         return TaskStatus;
 
     }
+
+    public String ValidateTaskStatus() throws InterruptedException {
+        //TestUtil.ClickOn(driver,TaskCompleteButton,20);
+        TestUtil.WaitForElementToBeVisible(driver,Status,60);
+        String TaskStatus = Status.getText();
+        return TaskStatus;
+
+    }
 }

@@ -224,15 +224,16 @@ public class SplatProspectEditPage extends TestBase {
         Save_Btn.click();
 
         TestUtil.Sleep(TestUtil.LARGE_WAIT_TIME);
-        TestUtil.Sleep(TestUtil.LARGE_WAIT_TIME);
-        TestUtil.WaitForElementToBeVisible(driver,GoBack_Btn,80000);
-        TestUtil.WaitForElementToBeClickable(driver,GoBack_Btn,80000);
+        TestUtil.Sleep(TestUtil.SMALL_WAIT_TIME);
+
+        TestUtil.WaitForElementToBeVisible(driver,GoBack_Btn,90000);
+        //TestUtil.WaitForElementToBeClickable(driver,GoBack_Btn,90000);
 
     }
 
     public SplatHomePage ClickOnGoBack(){
 
-        TestUtil.WaitForElementToBeClickable(driver,GoBack_Btn,80000);
+        TestUtil.WaitForElementToBeClickable(driver,GoBack_Btn,50000);
         GoBack_Btn.click();
 
         return new SplatHomePage();

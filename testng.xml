@@ -8,7 +8,7 @@
 
 
 
-     <test name="Account Test">
+     <!--test name="Account Test">
          <classes>
              <class name="com.crm.qa.testcases.AccountTest"/>
          </classes>
@@ -50,6 +50,54 @@
       </test>
 
 
+    <test name="SalesRegionTest">
+        <classes>
+            <class name="com.crm.qa.testcases.SalesRegionTest"/>
+        </classes>
+    </test>
+
+
+    <test name="ZipUtilityTest">
+        <classes>
+            <class name="com.crm.qa.testcases.ZipUtilityTest"/>
+
+        </classes>
+    </test>
+
+
+    <test name="MarketTest">
+        <classes>
+
+            <class name="com.crm.qa.testcases.MarketTest"/>
+
+        </classes>
+    </test>
+
+
+    <test name="MarketAssignmentTest">
+        <classes>
+
+            <class name="com.crm.qa.testcases.MarketAssignmentTest"/>
+
+        </classes>
+    </test-->
+
+    <test name="JurisdictionTest">
+        <classes>
+
+            <class name="com.crm.qa.testcases.JurisdictionTest"/>
+
+        </classes>
+    </test>
+
+
+    <test name="WorkOrderCreationTest">
+        <classes>
+
+            <class name="com.crm.qa.testcases.WorkOrderCreationTest"/>
+
+        </classes>
+    </test>
 
 
  </suite>

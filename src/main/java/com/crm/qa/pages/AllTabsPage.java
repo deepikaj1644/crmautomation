@@ -1,5 +1,6 @@
 package com.crm.qa.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -20,9 +21,10 @@ public class AllTabsPage extends TestBase {
     }
 
 
-	/*public LeadsHomePage ClickOnLeadsTab()
-	{
-		Leads_Lnk.click();
-		return new LeadsHomePage();
-	}*/
+
+    public ObjectHomePage ClickAnyTabOnAllTabsPage(String TabName)
+    {
+        driver.findElement(By.xpath("//img[@title='" + TabName  + "']/parent::a")).click();
+        return new ObjectHomePage();
+    }
 }

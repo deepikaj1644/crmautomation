@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class ProposalTest {
+public class ProposalTest extends TestBase {
 
     LoginPage loginpage;
     HomePage homepage;
@@ -19,17 +19,17 @@ public class ProposalTest {
     ProposalDetailsPage propDetailspage;
 
 
-    /*public ProposalTest()
+    public ProposalTest()
     {
         super();
-    }*/
+    }
 
-  /*@BeforeClass
+  @BeforeClass
     public void Setup() throws InterruptedException {
        initialization();
         loginpage = new LoginPage();
         homepage = loginpage.login(prop.getProperty("Username"), prop.getProperty("Password"));
-    }*/
+    }
 
     @Test(priority = 1, description="Creates a new Proposal",enabled= true)
     public void VerifyCreateNewResidentialAccountTest() throws InterruptedException {
@@ -59,9 +59,9 @@ public class ProposalTest {
 
     }
 
-   /*@AfterClass
+   @AfterClass
     public void TearDown()
     {
         driver.quit();
-    }*/
+    }
 }

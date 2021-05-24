@@ -37,7 +37,7 @@ public class AccountTest extends TestBase {
         System.out.println("Account Test begins...");
     }
 
-   @Test(priority = 1, description="Creates a new Account of type 'Residential'",enabled= true)
+   @Test(priority = 1, description="Creates a new Account of type 'Residential'",enabled= false)
     public void VerifyCreateNewResidentialAccountTest() throws InterruptedException {
 
         objHomePage = homepage.ClickAnyTabOnHomePage("Accounts");
@@ -48,13 +48,13 @@ public class AccountTest extends TestBase {
 
         accEditpage = new AccountEditPage();
 
-        accDetailspage = accEditpage.CreateNewResidentialAccount("Auto14Demo27370 Silent Water Way-89149","No","Standardized","Google Maps","USA:NV:LAS VEGAS:SILENT WATER WAY:7370:89149","36.295095400000000","-115.307233100000000","ROOFTOP","PST","true","702","04","018","004");
+        accDetailspage = accEditpage.CreateNewResidentialAccount("Auto1Demo27370 Silent Water Way-89149","No","Standardized","Google Maps","USA:NV:LAS VEGAS:SILENT WATER WAY:7370:89149","36.295095400000000","-115.307233100000000","ROOFTOP","PST","true","702","04","018","004");
         Assert.assertTrue(accDetailspage.ValidateVisibilityofEditButton());
 
-        homepage.PerformGlobalSearch("Auto14Demo27370 Silent Water Way-89149");
+        homepage.PerformGlobalSearch("Auto1Demo27370 Silent Water Way-89149");
         accDetailspage = new AccountDetailsPage();
         Assert.assertTrue(accDetailspage.ValidateAccountDetailLabel());
-        accDetailspage.FillAddressInformationResidentialAccount("Auto14Demo27370 Silent Water Way","Las Vegas","NV","89149","USA","Clark","(256) 283-3633","Las Vegas","Clark","REAVES", "REAVES KATHRYN RUTH (TE)","SFR (single family residence)","CLEARWATER EST PLAT BOOK 134 PAGE 9 LOT 9 BLOCK 1","TRUST","125-18-410-009","LAS VEGAS");
+        accDetailspage.FillAddressInformationResidentialAccount("Auto1Demo27370 Silent Water Way","Las Vegas","NV","89149","USA","Clark","(256) 283-3633","Las Vegas","Clark","REAVES", "REAVES KATHRYN RUTH (TE)","SFR (single family residence)","CLEARWATER EST PLAT BOOK 134 PAGE 9 LOT 9 BLOCK 1","TRUST","125-18-410-009","LAS VEGAS");
         Assert.assertTrue(accDetailspage.ValidateAccountDetailLabel());
 
     }
@@ -105,7 +105,7 @@ public class AccountTest extends TestBase {
 
     }
 
-    @Test(priority = 1, description="Creates a new Account of type 'Partner'", enabled=false)
+    @Test(priority = 1, description="Creates a new Account of type 'Partner'", enabled=true)
     public void VerifyCreateNewPartnerAccountTest() throws InterruptedException {
 
         objHomePage = homepage.ClickAnyTabOnHomePage("Accounts");

@@ -376,8 +376,9 @@ public class ProposalEditPage extends TestBase {
         Year1TotalPriceperkWh_Textbox.sendKeys(Year1TotalPriceperkWh);
         AvoidedCostofPower_Textbox.sendKeys(AvoidedCostofPower);
         ActualEscalator_Textbox.sendKeys(ActualEscalator);
-        EPCPriceperWatt_Textbox.sendKeys(EPCPriceperWatt);
-        PriceWattforPricing_Textbox.sendKeys(PriceWattforPricing);
+        //EPCPriceperWatt_Textbox.sendKeys(EPCPriceperWatt);
+        //TestUtil.ScrollIntoView(PriceWattforPricing_Textbox,driver);
+        //PriceWattforPricing_Textbox.sendKeys(PriceWattforPricing);
         GrossSystemPurchasePrice_Textbox.sendKeys(GrossSystemPurchasePrice);
         SRECTerm_Textbox.sendKeys(SRECTerm);
 
@@ -413,7 +414,7 @@ public class ProposalEditPage extends TestBase {
         ExternalId_Textbox.sendKeys(ExternalId);
         LengthofAgreement_Textbox.sendKeys(LengthofAgreement);
         TurnkeyPurchasePrice_Textbox.sendKeys(TurnkeyPurchasePrice);
-        EPCPrice_Textbox.sendKeys(EPCPrice);
+        //EPCPrice_Textbox.sendKeys(EPCPrice);
         EstimatedGAAPCost_Textbox.sendKeys(EstimatedGAAPCost);
         CashPurchasePrice_Textbox.sendKeys(CashPurchasePrice);
         TitleCheckedDate_Textbox.sendKeys(TitleCheckedDate);
@@ -528,7 +529,7 @@ public class ProposalEditPage extends TestBase {
         DateIssued_Textbox.sendKeys(DateIssued);
         ChangeOrder_Checkbox.click();
 
-        TestUtil.SelectRequiredObjectFromLookup("Opportunity", "Auto14Demo27370 Silent Water Way-89149");
+        TestUtil.SelectRequiredObjectFromLookup("Opportunity", "Auto1Demo27370 Silent Water Way-89149");
 
 
     }

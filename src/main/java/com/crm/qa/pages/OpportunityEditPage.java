@@ -389,9 +389,9 @@ public class OpportunityEditPage extends TestBase {
         DealRegistrationStatusLst.selectByVisibleText(DealRegistrationStatus);
         TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
 
-        TestUtil.SelectRequiredObjectFromLookup("Sales Rep", "Ray Abati");
+        TestUtil.SelectRequiredObjectFromLookup("Sales Rep", "Laura Wood");
         TestUtil.SelectRequiredObjectFromLookup("Install Branch", "Las Vegas");
-        TestUtil.SelectRequiredObjectFromLookup("Account Name", "Auto14Demo27370 Silent Water Way-89149");
+        TestUtil.SelectRequiredObjectFromLookup("Account Name", "Auto1Demo27370 Silent Water Way-89149");
         TestUtil.SelectRequiredObjectFromLookup("PV Designer", "Laura Wood");
         TestUtil.SelectRequiredObjectFromLookup("Project Coordinator", "Laura Wood");
         TestUtil.SelectRequiredObjectFromLookup("Sales Organization Name", "LGCY Power, LLC");
@@ -488,7 +488,7 @@ public class OpportunityEditPage extends TestBase {
         OctoberUsage_Textbox.sendKeys(OctoberUsage);
         NovemberUsage_Textbox.sendKeys(NovemberUsage);
 
-        TestUtil.SelectRequiredObjectFromLookup("Zip-Utility", "Z-58419");
+        TestUtil.SelectRequiredObjectFromLookup("Zip-Utility", "Z-58472");
         TestUtil.SelectRequiredObjectFromLookup("Jurisdiction", "NV-COUNTY CLARK");
 
     }
@@ -516,14 +516,14 @@ public class OpportunityEditPage extends TestBase {
         LeadCreatedDate_Textbox.sendKeys(LeadCreatedDate);
 
         TestUtil.SelectRequiredObjectFromLookup("Lead Gen Partner", "LGCY Power, LLC");
-        TestUtil.SelectRequiredObjectFromLookup("Partner for Lead Passing", "LGCY Power, LLC");
+        //TestUtil.SelectRequiredObjectFromLookup("Partner for Lead Passing", "LGCY Power, LLC");
 
     }
 
     public void MarketAssignmentInfo() throws InterruptedException{
 
         TestUtil.SelectRequiredObjectFromLookup("Sales Partner", "LGCY Power, LLC");
-        TestUtil.SelectRequiredObjectFromLookup("Market Assignment(Sales)", "MA-50984");
+        TestUtil.SelectRequiredObjectFromLookup("Market Assignment(Sales)", "MA-51991");
 
     }
 
