@@ -17,7 +17,7 @@ public class JurisdictionTest extends TestBase {
     JurisdictionDetailsPage jurisdictionsDetailsPage;
     AllTabsPage allTabsPage;
 
-    @BeforeTest
+  @BeforeTest
     public void Setup() throws InterruptedException {
         initialization();
         loginpage = new LoginPage();
@@ -37,7 +37,7 @@ public class JurisdictionTest extends TestBase {
 
         jurisdictionEditPage = new JurisdictionsEditPage();
 
-        jurisdictionEditPage.CreateNewJurisdiction("NV-COUNTY CLARK5","NV","Path 1 - Sunrun Permit","NONE");
+        jurisdictionEditPage.CreateNewJurisdiction("NV-COUNTY CLARK","NV","Path 1 - Sunrun Permit","NONE");
 
         jurisdictionsDetailsPage = new JurisdictionDetailsPage();
         jurisdictionsDetailsPage.ValidateJurisdictionDetailsLabel();

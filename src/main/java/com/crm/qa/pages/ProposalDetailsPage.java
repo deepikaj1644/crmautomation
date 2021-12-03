@@ -105,11 +105,16 @@ public class ProposalDetailsPage extends TestBase{
         }
         else
         {
-            TestUtil.ClickOn(driver,GenerateNewServiceContractBtn,20000);
+            Boolean flag = GenerateNewServiceContractBtn.isDisplayed();
+
+            if(flag==true)
+            {
+                TestUtil.ClickOn(driver, GenerateNewServiceContractBtn, 20000);
+            }
 
         }
         //TestUtil.WaitForElementToBeClickable(driver,GenerateNewServiceContractBtn,20000);
-        //GenerateNewServiceContractBtn.click();
+       // GenerateNewServiceContractBtn.click();
         return new ServiceContractDetailsPage();
 
     }

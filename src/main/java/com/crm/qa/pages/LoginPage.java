@@ -42,6 +42,8 @@ public class LoginPage extends TestBase {
         LogInToSandbox.click();
         TestUtil.Sleep(TestUtil.SMALL_WAIT_TIME);
 
+        //Thread.sleep(10000);
+
         return new HomePage();
     }
 }

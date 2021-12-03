@@ -221,6 +221,7 @@ public class AccountEditPage extends TestBase {
         PageFactory.initElements(driver, this);
     }
 
+    //******* Fill details on Account Edit page for Account of type 'Residential' *************
     public AccountDetailsPage CreateNewResidentialAccount(String AccName, String Incorporated, String  AddressStandardizationStatus, String AddressStandardizationSource, String AddressToken, String Latitude, String Longitude, String AddStaConfiLevel, String TimeZone, String HasDaylightSavings, String AreaCode, String CongressDistrictNumber, String StateLegislativeUpper, String StateLegislativeLower) throws InterruptedException {
         TestUtil.WaitForElementToBeVisible(driver,AccountName_Textbox,30);
         AccountName_Textbox.sendKeys(AccName);
@@ -259,6 +260,7 @@ public class AccountEditPage extends TestBase {
 
     }
 
+    //******* Fill details on Account Edit page for Account of type 'Branch' *************
     public AccountDetailsPage CreateNewBranchAccount(String AccName, String FieldMarketingTeam, String AccountType, String LocalBranchConstant, String LocalSysSizeExponent, String OverheadPerWatt, String OverheadPerProject, String AddressStandardizationStatus, String AddressStandardizationSource, String AddressToken, String Latitude, String Longitude, String TimeZone, String HasDaylightSavings, String AreaCode) throws InterruptedException {
 
         TestUtil.WaitForElementToBeVisible(driver,AccountName_Textbox,30);
@@ -299,6 +301,8 @@ public class AccountEditPage extends TestBase {
         return new AccountDetailsPage();
     }
 
+
+    //******* Fill details on Account Edit page for Account of type 'Company' *************
     public AccountDetailsPage CreateNewCompanyAccount(String AccName,String AccountNumber,String CDYNEAddress,String GroupID,String FieldMarketingTeam,String EDPDate,String DocuSignEmail,String PartnerLogo,String PricingScheme,String DocuSignHostName,String QuickDesign,String BusinessDiv,String Incorporated,String SysSizeExponent,String NationalBranchConst,String BillingStreet,String BillingCity,String BState,String BZip,String BillingCountry,String County,String Phone,String CityName,String TownshipName,String CountyName,String EPCAdjustment,String PrimaryTitle,String SecondaryTitle,String LegalDescription,String APN,String HomeType,String AddressStandardizationStatus,String AddressStandardizationSource,String AddressToken,String Latitude,String Longitude,String TimeZone,String HasDaylightSavings,String AreaCode,String CongressDistrictNumber,String StateLegislativeUpper,String StateLegislativeLower) throws InterruptedException {
         TestUtil.WaitForElementToBeVisible(driver,AccountName_Textbox,30);
         AccountName_Textbox.sendKeys(AccName);
@@ -371,6 +375,7 @@ public class AccountEditPage extends TestBase {
 
     }
 
+    //******* Fill details on Account Edit page for Account of type 'Partner' *************
     public AccountDetailsPage CreateNewPartnerAccount(String AccName,String AccountNumber,String Classification,String EDPDate,String DocuSignHostName,String DocuSignEmail,String PartnerType,String GroupID,String PartnerStatus,String PartnerTier,String CorporateEmail,String QuickDesign,String AllSalesUsersGroupId,String AllUsersGroupId,String PartnerLogo,String PartnerDBAName,String AccountDivision,String BusinessDiv,String PricingScheme,String OperationsAdmin,String OfficeLocation,String FieldMarketingTeam,String Grade,String ScheduleType,String ShippingStreet,String ShippingCity,String ShippingState,String ShippingZip,String Phone,String Website,String Stage,String AddressStandardizationStatus) throws InterruptedException {
         TestUtil.WaitForElementToBeVisible(driver,AccountName_Textbox,30);
         AccountName_Textbox.sendKeys(AccName);

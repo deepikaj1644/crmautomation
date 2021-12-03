@@ -372,7 +372,7 @@ public class ProposalEditPage extends TestBase {
 
         Deposit_Textbox.sendKeys(Deposit);
         UpfrontPayment_Textbox.sendKeys(UpfrontPayment);
-        UpfrontPaymentAmout_Textbox.sendKeys(UpfrontPaymentAmout);
+        //UpfrontPaymentAmout_Textbox.sendKeys(UpfrontPaymentAmout);
         Year1TotalPriceperkWh_Textbox.sendKeys(Year1TotalPriceperkWh);
         AvoidedCostofPower_Textbox.sendKeys(AvoidedCostofPower);
         ActualEscalator_Textbox.sendKeys(ActualEscalator);
@@ -387,7 +387,7 @@ public class ProposalEditPage extends TestBase {
         TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
 
         Prepaypaymentforelectricity_Textbox.sendKeys(Prepaypaymentforelectricity);
-        RevisedSRSignoff_Textbox.sendKeys(RevisedSRSignoff);
+        //RevisedSRSignoff_Textbox.sendKeys(RevisedSRSignoff);
 
         Select ProductTypeLst = new Select(ProductType_Lst);
         ProductTypeLst.selectByVisibleText(ProductType);
@@ -395,22 +395,22 @@ public class ProposalEditPage extends TestBase {
 
         CostStack_Textbox.sendKeys(CostStack);
         CollectRebate_Checkbox.click();
-        LastGeneratedProposal_Checkbox.click();
+        //LastGeneratedProposal_Checkbox.click();
 
         Select ACHFeeEligibleLst = new Select(ACHFeeEligible_Lst);
         ACHFeeEligibleLst.selectByVisibleText(ACHFeeEligible);
         TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
 
-        TSRF_Textbox.sendKeys(TSRF);
+        //TSRF_Textbox.sendKeys(TSRF);
         DesignPlanReviewRequired_Checkbox.click();
 
         BillingType_Textbox.sendKeys(BillingType);
-        RoofWarrantyLength_Textbox.sendKeys(RoofWarrantyLength);
+        //RoofWarrantyLength_Textbox.sendKeys(RoofWarrantyLength);
         PGThresholdPer_Textbox.sendKeys(PGThresholdPer);
-        ParentProposalId_Textbox.sendKeys(ParentProposalId);
+        //ParentProposalId_Textbox.sendKeys(ParentProposalId);
         BillingMethod_Textbox.sendKeys(BillingMethod);
-        SunrunCreditStatus_Textbox.sendKeys(SunrunCreditStatus);
-        DateApproved_Textbox.sendKeys(DateApproved);
+        //SunrunCreditStatus_Textbox.sendKeys(SunrunCreditStatus);
+        //DateApproved_Textbox.sendKeys(DateApproved);
         ExternalId_Textbox.sendKeys(ExternalId);
         LengthofAgreement_Textbox.sendKeys(LengthofAgreement);
         TurnkeyPurchasePrice_Textbox.sendKeys(TurnkeyPurchasePrice);
@@ -529,7 +529,7 @@ public class ProposalEditPage extends TestBase {
         DateIssued_Textbox.sendKeys(DateIssued);
         ChangeOrder_Checkbox.click();
 
-        TestUtil.SelectRequiredObjectFromLookup("Opportunity", "Auto1Demo27370 Silent Water Way-89149");
+        TestUtil.SelectRequiredObjectFromLookup("Opportunity", "DemoTestOpportunity");
 
 
     }
@@ -563,7 +563,7 @@ public class ProposalEditPage extends TestBase {
         FinancingInstitution_Textbox.sendKeys(FinancingInstitution);
         CVV_Textbox.sendKeys(CVV);
 
-        TestUtil.ClickOn(driver,SaveBtn,20);
+        TestUtil.ClickOn(driver,SaveBtn,200000);
 
         return new ProposalDetailsPage();
 

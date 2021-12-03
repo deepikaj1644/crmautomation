@@ -43,7 +43,7 @@ public class ProposalTest extends TestBase {
 
 
         propEditpage = new ProposalEditPage();
-
+        Thread.sleep(5000);
         propEditpage.FillProposalOverview("Created","Total Solar","Customer Owned - Bank Financed","0","24,250.00","24,250.00","0.0850","0.109","0.0000","3.92","3.92","22,250.21","20","Detached single family home","22,250.00","12/7/2020 4:47 AM","K","MULTI_PARTY","No Fee","0.985","Customer Owned - Bank Financed","10","90","PK3KN99ZN231-K","Customer Owned - Bank Financed","SR Credit Approved","1/4/2021","PK3KN99ZN231:001-K1","20","10,681.00","10,681.00","10,681.00","22,250.00","5/7/2020 10:02 PM","8/5/2019 12:31 PM","EDP Phase-1");
         propEditpage.SystemInformation("5.670","18","1","1","1","11,054","210,887");
         propEditpage.CreditInformation("Cash Contract");
@@ -59,7 +59,7 @@ public class ProposalTest extends TestBase {
 
     }
 
-   @AfterClass
+  @AfterClass
     public void TearDown()
     {
         driver.quit();

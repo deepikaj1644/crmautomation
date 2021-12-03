@@ -44,7 +44,7 @@ public class CreateNewLeadTest extends TestBase {
 
 
 
- @Test(priority=1, dataProvider="getLeadTestData")
+ /*@Test(priority=1, dataProvider="getLeadTestData")
     public void VerifyCreateNewLead(String channelList, String leadStageList, String leadStatusList, String leadTypeList, String firstName, String lastName, String company, String street, String city, String state, String zipPostalCode, String country)
             throws InterruptedException {
 
@@ -64,9 +64,29 @@ public class CreateNewLeadTest extends TestBase {
 
 
 
+    }*/
+
+
+    @Test(priority=1)
+    public void VerifyCreateNewLead() throws InterruptedException {
+
+        objecthomepage = homepage.ClickAnyTabOnHomePage("Leads");
+        boolean flag = homepage.ValidateTabLabelDisplayed("Leads");
+        Assert.assertTrue(flag,"Label Does not exist");
+
+
+
+        selectobjectrecordtypePage = objecthomepage.ClickOnNewButton();
+        selectobjectrecordtypePage.SelectRecordType("New Inside Sales Team (April'13)");
+
+
+        leadpage = new LeadsPage();
+
+        leadpage.CreateNewLead("Bulk Mail", "1. Acquisition", "System Generated", "", "AutoF1", "AutoL1","Autocomp1", "AutoStreet1", "AutoCity1", "AutoState1", "AutoZip1", "USA");
+
+
+
     }
-
-
 
 
     @AfterMethod

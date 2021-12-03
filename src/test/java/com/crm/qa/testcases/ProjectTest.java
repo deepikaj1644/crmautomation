@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class ProjectTest {
+public class ProjectTest extends TestBase{
 
     LoginPage loginpage;
     HomePage homepage;
@@ -21,18 +21,18 @@ public class ProjectTest {
     ProjectPage projPage;
 
 
-   /* public ProjectTest()
+   public ProjectTest()
     {
         super();
-    }*/
+    }
 
-   /* @BeforeClass
+    @BeforeClass
     public void Setup() throws InterruptedException {
         initialization();
         loginpage = new LoginPage();
         homepage = loginpage.login(prop.getProperty("Username"), prop.getProperty("Password"));
     }
-*/
+
     @Test(priority = 1, description="Creates a new Project",enabled= true)
     public void VerifyCreateNewProjectTest() throws InterruptedException {
 
@@ -48,9 +48,9 @@ public class ProjectTest {
 
     }
 
-    /*@AfterClass
+   @AfterClass
     public void TearDown()
     {
        driver.quit();
-    }*/
+    }
 }

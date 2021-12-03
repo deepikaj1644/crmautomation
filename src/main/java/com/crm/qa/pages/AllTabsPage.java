@@ -21,7 +21,7 @@ public class AllTabsPage extends TestBase {
     }
 
 
-
+    //******* Click any tab on All Tabs Page *************
     public ObjectHomePage ClickAnyTabOnAllTabsPage(String TabName)
     {
         driver.findElement(By.xpath("//img[@title='" + TabName  + "']/parent::a")).click();

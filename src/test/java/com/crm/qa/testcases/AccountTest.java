@@ -16,18 +16,18 @@ public class AccountTest extends TestBase {
     SelectObjectRecordTypePage RecTypePage;
     AccountEditPage accEditpage;
     AccountDetailsPage accDetailspage;
-    String sheetName = "Residential_Account";
+    String sheetName = "ResidentialAccount";
 
 
-   /*public AccountTest()
+   public AccountTest()
     {
         super();
-    }*/
+    }
 
-    @DataProvider public Object[][] getLeadTestData() {
+   /* @DataProvider public Object[][] getLeadTestData() {
         Object data[][] = TestUtil.getTestData(sheetName);
         return data;
-    }
+    }*/
 
     @BeforeSuite
     public void Setup() throws InterruptedException {
@@ -37,8 +37,8 @@ public class AccountTest extends TestBase {
         System.out.println("Account Test begins...");
     }
 
-   @Test(priority = 1, description="Creates a new Account of type 'Residential'",enabled= false)
-    public void VerifyCreateNewResidentialAccountTest() throws InterruptedException {
+   @Test(priority = 1, description="Creates a new Account of type 'Residential'",enabled= true)
+   public void VerifyCreateNewResidentialAccountTest() throws InterruptedException {
 
         objHomePage = homepage.ClickAnyTabOnHomePage("Accounts");
         Assert.assertTrue(homepage.ValidateTabLabelDisplayed("Accounts"),"Label Does not exist");
@@ -48,18 +48,18 @@ public class AccountTest extends TestBase {
 
         accEditpage = new AccountEditPage();
 
-        accDetailspage = accEditpage.CreateNewResidentialAccount("Auto1Demo27370 Silent Water Way-89149","No","Standardized","Google Maps","USA:NV:LAS VEGAS:SILENT WATER WAY:7370:89149","36.295095400000000","-115.307233100000000","ROOFTOP","PST","true","702","04","018","004");
+        accDetailspage = accEditpage.CreateNewResidentialAccount("27371 Silent Water Way-89149","No","Standardized","Google Maps","USA:NV:LAS VEGAS:SILENT WATER WAY:7370:89149","36.2950954","-115.3072331","ROOFTOP","PST","TRUE","702","4","18","4");
         Assert.assertTrue(accDetailspage.ValidateVisibilityofEditButton());
 
-        homepage.PerformGlobalSearch("Auto1Demo27370 Silent Water Way-89149");
+        homepage.PerformGlobalSearch("27371 Silent Water Way-89149");
         accDetailspage = new AccountDetailsPage();
         Assert.assertTrue(accDetailspage.ValidateAccountDetailLabel());
-        accDetailspage.FillAddressInformationResidentialAccount("Auto1Demo27370 Silent Water Way","Las Vegas","NV","89149","USA","Clark","(256) 283-3633","Las Vegas","Clark","REAVES", "REAVES KATHRYN RUTH (TE)","SFR (single family residence)","CLEARWATER EST PLAT BOOK 134 PAGE 9 LOT 9 BLOCK 1","TRUST","125-18-410-009","LAS VEGAS");
+        accDetailspage.FillAddressInformationResidentialAccount("27370 Silent Water Way","Las Vegas","NV","89149","USA","Clark","(256) 283-3633","Las Vegas","Clark","REAVES","REAVES KATHRYN RUTH (TE)","SFR (single family residence)","CLEARWATER EST PLAT BOOK 134 PAGE 9 LOT 9 BLOCK 1","TRUST","125-18-410-009","LAS VEGAS");
         Assert.assertTrue(accDetailspage.ValidateAccountDetailLabel());
 
     }
 
-    @Test(priority = 1, description="Creates a new Account of type 'Branch'",enabled= false)
+    @Test(priority = 3, description="Creates a new Account of type 'Branch'",enabled= false)
     public void VerifyCreateNewBranchAccountTest() throws InterruptedException {
 
         objHomePage = homepage.ClickAnyTabOnHomePage("Accounts");
@@ -82,7 +82,7 @@ public class AccountTest extends TestBase {
 
     }
 
-    @Test(priority = 1, description="Creates a new Account of type 'Company'", enabled = false)
+    @Test(priority = 2, description="Creates a new Account of type 'Company'", enabled = false)
     public void VerifyCreateNewCompanyAccountTest() throws InterruptedException {
 
         objHomePage = homepage.ClickAnyTabOnHomePage("Accounts");
@@ -105,7 +105,7 @@ public class AccountTest extends TestBase {
 
     }
 
-    @Test(priority = 1, description="Creates a new Account of type 'Partner'", enabled=true)
+    @Test(priority = 4, description="Creates a new Account of type 'Partner'", enabled=false)
     public void VerifyCreateNewPartnerAccountTest() throws InterruptedException {
 
         objHomePage = homepage.ClickAnyTabOnHomePage("Accounts");
@@ -116,7 +116,7 @@ public class AccountTest extends TestBase {
 
         accEditpage = new AccountEditPage();
 
-        accDetailspage = accEditpage.CreateNewPartnerAccount("LGCY Power, LLC","4358935161","Direct","9/8/2014","Sunrun eSignAdmin","sunrun_esign_admin@sunrunhome.com.installops","Sales","00G60000002hcQb","Active","SR-Branded, Ineligible","salessupport@lgcypower.com.installops","Auto High","00G32000003FWMG","00G32000003FWMp","LGCYPowerLogo_Stretched Blue.png","LGCY Power, LLC","Sunrun","02d320000004Cm2AAE","Matrix","lgcyops@sunrun.com.installops","Headquarters","Sandy - UT","A+","Costco Fenceline","3450 N triumph blvd\n" +
+        accDetailspage = accEditpage.CreateNewPartnerAccount("LGCY Power, LLC","4358935162","Direct","9/8/2014","Sunrun eSignAdmin","sunrun_esign_admin@sunrunhome.com.installops","Sales","00G60000002hcQb","Active","SR-Branded, Ineligible","salessupport@lgcypower.com.installops","Auto High","00G32000003FWMG","00G32000003FWMp","LGCYPowerLogo_Stretched Blue.png","LGCY Power, LLC","Sunrun","02d320000004Cm2AAE","Matrix","lgcyops@sunrun.com.installops","Headquarters","Sandy - UT","A+","Costco Fenceline","3450 N triumph blvd\n" +
                 "Suite 102","Lehi","UT","84043","(844) 542-9797 opt 2","Lgcypower.com","Confirmed","Standardization Missing Address");
         Assert.assertTrue(accDetailspage.ValidateVisibilityofEditButton());
 

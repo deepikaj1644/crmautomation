@@ -7,47 +7,18 @@
     </listeners>
 
 
-
-     <!--test name="Account Test">
-         <classes>
-             <class name="com.crm.qa.testcases.AccountTest"/>
-         </classes>
-     </test>
+    <!--test name="Account Test">
+        <classes>
+            <class name="com.crm.qa.testcases.AccountTest"/>
+        </classes>
+    </test-->
 
 
     <test name="Contact Test">
-         <classes>
-             <class name="com.crm.qa.testcases.ContactTest"/>
-         </classes>
-     </test>
-
-
-    <test name="Opportunity Test">
-         <classes>
-             <class name="com.crm.qa.testcases.OpportunityTest"/>
-         </classes>
-     </test>
-
-
-     <test name="Proposal Test">
-         <classes>
-             <class name="com.crm.qa.testcases.ProposalTest"/>
-         </classes>
-     </test>
-
-
-    <test name="Project Test">
         <classes>
-            <class name="com.crm.qa.testcases.ProjectTest"/>
+            <class name="com.crm.qa.testcases.ContactTest"/>
         </classes>
     </test>
-
-
-      <test name="Service Contract Test">
-          <classes>
-              <class name="com.crm.qa.testcases.ServiceContractTest"/>
-          </classes>
-      </test>
 
 
     <test name="SalesRegionTest">
@@ -55,6 +26,7 @@
             <class name="com.crm.qa.testcases.SalesRegionTest"/>
         </classes>
     </test>
+
 
 
     <test name="ZipUtilityTest">
@@ -88,7 +60,39 @@
             <class name="com.crm.qa.testcases.JurisdictionTest"/>
 
         </classes>
-    </test-->
+    </test>
+
+
+
+
+   <test name="OpportunityTest">
+        <classes>
+            <class name="com.crm.qa.testcases.OpportunityTest"/>
+        </classes>
+    </test>
+
+
+
+    <test name="Proposal Test">
+        <classes>
+            <class name="com.crm.qa.testcases.ProposalTest"/>
+        </classes>
+    </test>
+
+
+   <test name="Project Test">
+       <classes>
+           <class name="com.crm.qa.testcases.ProjectTest"/>
+       </classes>
+   </test>
+
+
+     <test name="Service Contract Test">
+         <classes>
+             <class name="com.crm.qa.testcases.ServiceContractTest"/>
+         </classes>
+     </test>
+
 
 
     <test name="WorkOrderCreationTest">

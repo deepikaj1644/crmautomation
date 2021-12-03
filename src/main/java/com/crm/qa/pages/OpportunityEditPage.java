@@ -315,8 +315,7 @@ public class OpportunityEditPage extends TestBase {
         PageFactory.initElements(driver, this);
     }
 
-
-    public void FillOpportunityInformation(String SiteDesignReqDate, String SalesRepEmail, String SalesBranch, String SalesTerritory, String LeadOrigin, String RackingType, String Program, String HOAPhone, String DialStatus, String ProductOffering, String Channel, String LeadSource, String LeadType, String Stage, String CloseDate, String Probability, String OpportunityNumber, String ChannelLast, String LeadSourceLast, String LeadTypeLast, String TechnologyLast, String DealRegistrationStatus) throws InterruptedException {
+        public void FillOpportunityInformation(String SiteDesignReqDate, String SalesRepEmail, String SalesBranch, String SalesTerritory, String LeadOrigin, String RackingType, String Program, String HOAPhone, String DialStatus, String ProductOffering, String Channel, String LeadSource, String LeadType, String Stage, String CloseDate, String Probability, String OpportunityNumber, String ChannelLast, String LeadSourceLast, String LeadTypeLast, String TechnologyLast, String DealRegistrationStatus) throws InterruptedException {
         TestUtil.WaitForElementToBeVisible(driver, SiteDesignRequested_Textbox, 30);
         SiteDesignRequested_Textbox.sendKeys(SiteDesignReqDate);
         SalesRepEmail_Textbox.sendKeys(SalesRepEmail);
@@ -391,7 +390,7 @@ public class OpportunityEditPage extends TestBase {
 
         TestUtil.SelectRequiredObjectFromLookup("Sales Rep", "Laura Wood");
         TestUtil.SelectRequiredObjectFromLookup("Install Branch", "Las Vegas");
-        TestUtil.SelectRequiredObjectFromLookup("Account Name", "Auto1Demo27370 Silent Water Way-89149");
+        TestUtil.SelectRequiredObjectFromLookup("Account Name", "27370 Silent Water Way-89149");
         TestUtil.SelectRequiredObjectFromLookup("PV Designer", "Laura Wood");
         TestUtil.SelectRequiredObjectFromLookup("Project Coordinator", "Laura Wood");
         TestUtil.SelectRequiredObjectFromLookup("Sales Organization Name", "LGCY Power, LLC");
@@ -488,8 +487,8 @@ public class OpportunityEditPage extends TestBase {
         OctoberUsage_Textbox.sendKeys(OctoberUsage);
         NovemberUsage_Textbox.sendKeys(NovemberUsage);
 
-        TestUtil.SelectRequiredObjectFromLookup("Zip-Utility", "Z-58472");
-        TestUtil.SelectRequiredObjectFromLookup("Jurisdiction", "NV-COUNTY CLARK");
+        TestUtil.SelectRequiredObjectFromLookup("Zip-Utility", "Z-");
+       // TestUtil.SelectRequiredObjectFromLookup("Jurisdiction", "NV-COUNTY CLARK");
 
     }
 
@@ -523,7 +522,7 @@ public class OpportunityEditPage extends TestBase {
     public void MarketAssignmentInfo() throws InterruptedException{
 
         TestUtil.SelectRequiredObjectFromLookup("Sales Partner", "LGCY Power, LLC");
-        TestUtil.SelectRequiredObjectFromLookup("Market Assignment(Sales)", "MA-51991");
+        TestUtil.SelectRequiredObjectFromLookup("Market Assignment(Sales)", "MA-");
 
     }
 
@@ -593,7 +592,7 @@ public class OpportunityEditPage extends TestBase {
         TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
         InstallationOffice_Textbox.sendKeys(InstallationOffice);
 
-        TestUtil.ClickOn(driver,SaveBtn,90000);
+        TestUtil.ClickOn(driver,SaveBtn,900000000);
 
         return new OpportunityDetailsPage();
 
@@ -605,7 +604,7 @@ public class OpportunityEditPage extends TestBase {
         Select StageLst = new Select(Stage_Lst);
         StageLst.selectByVisibleText("11. Closed Lost");
         TestUtil.Sleep(2);
-        TestUtil.ClickOn(driver,SaveBtn,90000);
+        TestUtil.ClickOn(driver,SaveBtn,900000000);
         return new OpportunityDetailsPage();
 
     }

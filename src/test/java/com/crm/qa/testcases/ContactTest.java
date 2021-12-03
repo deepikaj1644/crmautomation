@@ -2,10 +2,12 @@ package com.crm.qa.testcases;
 
 import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.*;
+import com.crm.qa.utilities.TestUtil;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class ContactTest extends TestBase{
@@ -16,11 +18,18 @@ public class ContactTest extends TestBase{
     SelectObjectRecordTypePage RecTypePage;
     ContactEditPage contacteditpage;
     ContactDetailsPage contactdetailspage;
+    String sheetName = "Contacts";
 
- /*   public ContactTest()
+    public ContactTest()
     {
         super();
-    }*/
+    }
+
+    @DataProvider
+    public Object[][] getLeadTestData() {
+        Object data[][] = TestUtil.getTestData(sheetName);
+        return data;
+    }
 
    @BeforeClass
    public void Setup() throws InterruptedException {
@@ -29,29 +38,30 @@ public class ContactTest extends TestBase{
         homepage = loginpage.login(prop.getProperty("Username"), prop.getProperty("Password"));
     }
 
-    @Test(priority = 1, description="Creates a new Contact of type 'Residential'",enabled= true)
-    public void CreateNewContactTest() throws InterruptedException {
+
+    @Test(priority = 1, dataProvider="getLeadTestData", description="Creates a new Contact of type 'Residential'",enabled= true)
+    public void CreateNewContactTest(String Fname,String LName,String AccName,String Phone,String Mobile,String CallCon,String Email,String LeadSource,String PrefConMethod,String MySunCustID,String MailingStreet,String MailingCity,String MailingState,String MailingZip,String MailingCountry,String Country,String AddressStaStatus,String CreditSubmitted,String CreditReceived) throws InterruptedException {
         //homepage = new HomePage();
         objHomePage = homepage.ClickAnyTabOnHomePage("Contacts Tab");
         Assert.assertTrue(homepage.ValidateTabLabelDisplayed("Contacts"),"Label Does not exist");
 
         RecTypePage = objHomePage.ClickOnNewButton();
-        RecTypePage.SelectRecordType("Residential");
+        //RecTypePage.SelectRecordType("Residential");
 
         contacteditpage = new ContactEditPage();
 
-        contactdetailspage = contacteditpage.EditContactDetails("DemoKathy","DemoReaves","Auto1Demo27370 Silent Water Way-89149","(256) 283-3633","(256) 283-3633","Yes","DemoKathy.Reaves@yopmail.com","LGCY","Phone","8797360538262544207","7370 Silent Water Way","Las Vegas","NV","89149","USA","NA","Standardization Required","8/5/2019 12:24 PM","8/5/2019 12:24 PM");
+        contactdetailspage = contacteditpage.EditContactDetails(Fname,LName,AccName,Phone,Mobile,CallCon,Email,LeadSource,PrefConMethod,MySunCustID,MailingStreet,MailingCity,MailingState,MailingZip,MailingCountry,Country,AddressStaStatus,CreditSubmitted,CreditReceived);
         Assert.assertTrue(contactdetailspage.ValidateVisibilityofEditButton());
         Assert.assertTrue(contactdetailspage.ValidateAccountDetailLabel());
 
 
     }
 
-   /* @AfterClass
+  @AfterClass
     public void TearDown()
     {
         driver.quit();
-    }*/
+    }
 
 
 }

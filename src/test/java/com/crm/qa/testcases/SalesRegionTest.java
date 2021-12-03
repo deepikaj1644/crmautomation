@@ -49,7 +49,7 @@ public class SalesRegionTest extends TestBase {
 
         salesRegionEditPage = new SalesRegionEditPage();
 
-        salesRegionEditPage.CreateNewSalesRegion("Nevada1");
+        salesRegionEditPage.CreateNewSalesRegion("Nevada");
 
         salesRegionDetailspage = new SalesRegionDetailsPage();
         salesRegionDetailspage.ValidateSalesRegionLabel();
@@ -57,7 +57,7 @@ public class SalesRegionTest extends TestBase {
 
     }
 
-    @AfterTest
+   @AfterTest
     public void TearDown()
     {
         driver.quit();

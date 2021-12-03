@@ -124,18 +124,23 @@ public class AccountDetailsPage extends TestBase {
         PageFactory.initElements(driver, this);
     }
 
+
+    //******* To validate the Account Details Label on the Account Details Page *********
     public boolean ValidateAccountDetailLabel()
     {
         TestUtil.WaitForElementToBeVisible(driver,AccountDetail_Label,50);
         return AccountDetail_Label.isDisplayed();
     }
+
+    //******* To validate the Account Details Label on the Account Details Page *********
     public boolean ValidateVisibilityofEditButton()
     {
         TestUtil.WaitForElementToBeVisible(driver,EditBtn,50);
         return EditBtn.isDisplayed();
     }
 
-    public void FillAddressInformationResidentialAccount(String BStreet, String BCity, String BState, String BZip, String BCountry, String Country, String Phone, String TownshipName, String CountyName, String PrimaryTitle, String SecondaryTitle, String HomeTypeonTitle, String LegalDescription, String OwnershipType, String APN, String Municipality) throws InterruptedException {
+    //******* Fill out Address Information for Account of type 'Residential' *************
+        public void FillAddressInformationResidentialAccount(String BStreet, String BCity, String BState, String BZip, String BCountry, String Country, String Phone, String TownshipName, String CountyName, String PrimaryTitle, String SecondaryTitle, String HomeTypeonTitle, String LegalDescription, String OwnershipType, String APN, String Municipality) throws InterruptedException {
         TestUtil.WaitForElementToBeVisible(driver,BillingAddress_Textbox,60);
         TestUtil.flash(BillingAddress_Textbox, driver);
         TestUtil.DoubleclickElementByJS(BillingAddress_Textbox,driver);
@@ -217,6 +222,8 @@ public class AccountDetailsPage extends TestBase {
 
     }
 
+
+    //******* Fill out Address Information for Account of type 'Branch' *************
     public void FillAddressInformationBranchAccount(String BStreet,String BCity, String BState, String BZip,String BCountry,String Country,String Region,String PrimaryTitle, String HomeTypeonTitle,String LegalDescription) throws InterruptedException {
 
         TestUtil.WaitForElementToBeVisible(driver,BillingAddress_Textbox,60);
@@ -270,7 +277,7 @@ public class AccountDetailsPage extends TestBase {
 
     }
 
-
+    //******* Fill out Address Information for Account of type 'Company' *************
     public void FillAddressInformationCompanyAccount(String BStreet,String BCity, String BState, String BZip,String BCountry,String PrimaryTitle,String SecondaryTitle, String HomeTypeonTitle,String LegalDescription,String APN) throws InterruptedException {
 
         TestUtil.WaitForElementToBeVisible(driver,BillingAddress_Textbox,60);

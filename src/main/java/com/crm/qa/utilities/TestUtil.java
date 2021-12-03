@@ -22,6 +22,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class TestUtil extends TestBase {
     public static long PAGE_LOAD_TIMEOUT = 60;
@@ -31,6 +32,7 @@ public class TestUtil extends TestBase {
     public static int SMALL_WAIT_TIME = 5;
     public static int MEDIUM_WAIT_TIME = 30;
     public static int LARGE_WAIT_TIME = 60;
+    public static String ProspectID;
 
     public static String TESTDATA_SHEET_PATH = "D:\\Deepika\\Sunrun\\crmautomation\\src\\main\\java\\com\\crm\\qa\\testdata\\AutomationTestData.xlsx";
 
@@ -193,7 +195,7 @@ public class TestUtil extends TestBase {
             Sleep(XSMALL_WAIT_TIME);
             SwitchToFrame("resultsFrame");
             Sleep(XSMALL_WAIT_TIME);
-            driver.findElement(By.xpath("//a[text()='" + RecordName + "']")).click();
+            driver.findElement(By.xpath("//a[contains(text(),'" + RecordName + "')]")).click();
             Sleep(XSMALL_WAIT_TIME);
 
             driver.switchTo().window(parentwindow);
@@ -242,7 +244,7 @@ public class TestUtil extends TestBase {
         Execute_Btn.click();
 
         WebElement ResultsText = driver.findElement(By.xpath("//div[contains(@id,'async-container')]/pre[contains(text(),'APEX_CODE')]"));
-        TestUtil.WaitForElementToBeVisible(driver,ResultsText,200000);
+        TestUtil.WaitForElementToBeVisible(driver,ResultsText,90000000);
 
         driver.switchTo().window(tabs.get(0));
         TestUtil.Sleep(2);
@@ -322,6 +324,136 @@ public class TestUtil extends TestBase {
         return RecordID;
 
 
+    }
+
+    public static String CreateAndConvertLeadUsingRestAPI(String ReqBody) throws InterruptedException {
+
+
+        //**************************************************Login to Workbench *****************************************************
+
+        ((JavascriptExecutor) driver).executeScript("window.open()");
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+        driver.get("https://workbench.developerforce.com/login.php");
+
+        WebElement Environment_Lst = driver.findElement(By.id("oauth_env"));
+        TestUtil.WaitForElementToBeClickable(driver,Environment_Lst,2000);
+
+        Select EnvironmentLst = new Select(Environment_Lst);
+        EnvironmentLst.selectByVisibleText("Sandbox");
+        TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
+
+        WebElement TermsofService_Checkbox = driver.findElement(By.id("termsAccepted"));
+        TermsofService_Checkbox.click();
+
+        WebElement LoginWithSF_Btn = driver.findElement(By.xpath("//input[@value='Login with Salesforce']"));
+        LoginWithSF_Btn.click();
+
+
+
+        //************************************************* Create Lead *****************************************************
+
+
+            WebElement Utilities = driver.findElement(By.xpath("//span[text()='utilities']"));
+            TestUtil.WaitForElementToBeClickable(driver, Utilities, 10000);
+            Actions action = new Actions(driver);
+            action.moveToElement(Utilities).build().perform();
+            WebElement RESTExplorer_Lnk = driver.findElement(By.xpath("//a[text()='REST Explorer']"));
+            TestUtil.WaitForElementToBeClickable(driver, RESTExplorer_Lnk, 10000);
+            RESTExplorer_Lnk.click();
+
+            WebElement POST_RadioBtn = driver.findElement(By.xpath("//input[@type='radio' and @value='POST']"));
+            TestUtil.WaitForElementToBeVisible(driver, POST_RadioBtn, 10000);
+
+            WebElement RequestURI_Textbox = driver.findElement(By.xpath("//input[@id='urlInput']"));
+            TestUtil.WaitForElementToBeVisible(driver, RequestURI_Textbox, 10000);
+            RequestURI_Textbox.clear();
+            TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
+            RequestURI_Textbox.sendKeys("/services/apexrest/v2/leads?debug=true");
+
+            POST_RadioBtn.click();
+            TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
+
+            WebElement RequestBody_Txtarea = driver.findElement(By.xpath("//textarea[@name='requestBody']"));
+            TestUtil.WaitForElementToBeVisible(driver, RequestBody_Txtarea, 10000);
+            RequestBody_Txtarea.sendKeys(ReqBody);
+
+            WebElement Execute_Btn = driver.findElement(By.xpath("//input[@value='Execute']"));
+            Execute_Btn.click();
+
+            Thread.sleep(40000);
+            try {
+
+                WebElement ProspectID_Txt = driver.findElement(By.xpath("//a[contains(text(),'Expand All')]/following-sibling::div[@class='results']//li[contains(text(),'prospectId:')]/strong"));
+                //ProspectID_Txt.click();
+                String ProspectID = ProspectID_Txt.getText();
+
+            } catch(org.openqa.selenium.StaleElementReferenceException ex){
+
+                WebElement ProspectID_Txt = driver.findElement(By.xpath("//a[contains(text(),'Expand All')]/following-sibling::div[@class='results']//li[contains(text(),'prospectId:')]/strong"));
+               // ProspectID_Txt.click();
+                String ProspectID = ProspectID_Txt.getText();
+            }
+
+            //WebElement ProspectID_Txt1 = driver.findElement(By.xpath("//div[@id='responseListContainer']//li[text()='prospectId: ']/strong"));
+            //ProspectID_Txt1.click();
+            //String ProspectID = ProspectID_Txt1.getText();
+
+
+
+            //**************************************************Convert Lead *****************************************************
+
+
+            //TestUtil.WaitForElementToBeClickable(driver,Utilities,10000);
+            //Actions action = new Actions(driver);
+            action.moveToElement(Utilities).build().perform();
+            //WebElement RESTExplorer_Lnk = driver.findElement(By.xpath("//a[text()='REST Explorer']"));
+            TestUtil.WaitForElementToBeClickable(driver, RESTExplorer_Lnk, 10000);
+            RESTExplorer_Lnk.click();
+
+            try{
+            WebElement PATCH_RadioBtn = driver.findElement(By.xpath("//input[@type='radio' and @value='PATCH']"));
+            TestUtil.WaitForElementToBeVisible(driver, PATCH_RadioBtn, 10000);
+            PATCH_RadioBtn.click();
+            TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
+            }catch(StaleElementReferenceException e){
+
+                WebElement PATCH_RadioBtn = driver.findElement(By.xpath("//input[@type='radio' and @value='PATCH']"));
+                TestUtil.WaitForElementToBeVisible(driver, PATCH_RadioBtn, 10000);
+                PATCH_RadioBtn.click();
+                TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
+            }
+
+            TestUtil.WaitForElementToBeVisible(driver, RequestURI_Textbox, 10000);
+            RequestURI_Textbox.clear();
+            TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
+            RequestURI_Textbox.sendKeys("/services/apexrest/v2/leads/" + ProspectID + "?debug=true");
+
+
+
+
+            RequestBody_Txtarea.clear();
+            TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
+            RequestBody_Txtarea.sendKeys("{\n" +
+                    "  \"prospectQualified\" : true\n" +
+                    "}");
+
+            TestUtil.Sleep(TestUtil.XSMALL_WAIT_TIME);
+            Execute_Btn.click();
+
+            WebElement LeadConversionStatus_Txt = driver.findElement(By.xpath("//div[@id='responseListContainer']//li[text()='leadConversionStatus: ']/strong[text()='Failure']"));
+            TestUtil.WaitForElementToBeVisible(driver, LeadConversionStatus_Txt, 900000000);
+            Assert.assertTrue(LeadConversionStatus_Txt.isDisplayed());
+
+
+
+        driver.switchTo().window(tabs.get(0));
+        TestUtil.Sleep(2);
+        TestUtil.refreshBrowserByJS(driver);
+        TestUtil.Sleep(5);
+
+
+        return ProspectID;
     }
 
 

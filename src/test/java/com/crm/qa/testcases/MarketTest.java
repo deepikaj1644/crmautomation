@@ -48,7 +48,7 @@ public class MarketTest extends TestBase {
 
         marketEditPage = new MarketEditPage();
 
-        marketEditPage.CreateNewMarket("NV - NV Energy South1","NV","NV Energy South","10");
+        marketEditPage.CreateNewMarket("NV - NV Energy South","NV","NV Energy South","10");
 
         marketDetailsPage = new MarketDetailsPage();
         marketDetailsPage.ValidateMarketDetailsLabel();

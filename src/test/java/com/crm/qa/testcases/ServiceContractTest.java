@@ -22,7 +22,7 @@ public class ServiceContractTest extends TestBase {
         super();
     }
 
-    @BeforeClass
+   @BeforeClass
     public void Setup() throws InterruptedException {
         initialization();
         loginpage = new LoginPage();
@@ -47,7 +47,7 @@ public class ServiceContractTest extends TestBase {
 
     }
 
-    @AfterClass
+   @AfterClass
     public void TearDown()
     {
         driver.quit();

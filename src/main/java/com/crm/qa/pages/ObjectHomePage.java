@@ -19,10 +19,10 @@ public class ObjectHomePage extends TestBase {
     public SelectObjectRecordTypePage ClickOnNewButton()
     {
         try {
-            TestUtil.ClickOn(driver,NewBtn,20);
+            TestUtil.ClickOn(driver,NewBtn,200);
         }
         catch (NullPointerException e){
-            TestUtil.ClickOn(driver,NewBtn,20);
+            TestUtil.ClickOn(driver,NewBtn,200);
     }
         return new SelectObjectRecordTypePage();
 

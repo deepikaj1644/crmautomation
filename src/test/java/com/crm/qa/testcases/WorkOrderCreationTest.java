@@ -23,12 +23,12 @@ public class WorkOrderCreationTest extends TestBase {
         super();
     }
 
-    @BeforeClass
+    /*@BeforeClass
     public void Setup() throws InterruptedException {
         initialization();
         loginpage = new LoginPage();
         homepage = loginpage.login(prop.getProperty("Username"), prop.getProperty("Password"));
-    }
+    }*/
 
     @Test(priority = 1, description="Creates a new 'WorkOrder' record",enabled= true)
     public void CreateNewServiceContractTest() throws InterruptedException {
@@ -59,10 +59,10 @@ public class WorkOrderCreationTest extends TestBase {
 
     }
 
-    @AfterClass
+    /*@AfterClass
     public void TearDown()
     {
         driver.quit();
-    }
+    }*/
 
 }

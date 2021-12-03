@@ -31,6 +31,13 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//a[text()='PR-2115006529']")
     WebElement SearchResultRecord;
 
+    @FindBy(xpath="//a[@class='btn' and @title='Search All']")
+    WebElement SearchAll_Lnk;
+
+    @FindBy(xpath="//input[@id='secondSearchButton' and @value='Search All']")
+    WebElement SearchAll_Btn;
+
+
 
 
 
@@ -69,6 +76,11 @@ public class HomePage extends TestBase {
     public ProposalDetailsPage PerformGlobalSearch(String Item) throws InterruptedException {
         GlobalSearchBox.sendKeys(Item);
         TestUtil.ClickOn(driver,SearchButton,1000);
+       /* Boolean Status = SearchAll_Btn.isDisplayed();
+        if(Status==true){
+            SearchAll_Btn.click();
+        }*/
+
         TestUtil.WaitForElementToBeClickable(driver,driver.findElement(By.xpath("//th/a[text()='" + Item + "']")),20000);
         try {
 
@@ -92,5 +104,10 @@ public class HomePage extends TestBase {
 
     }
 
+    public void SearchAllLink()
+    {
+        SearchAll_Lnk.click();
+
+    }
 
 }
