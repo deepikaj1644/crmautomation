@@ -9,32 +9,40 @@ import com.crm.qa.utilities.TestUtil;
 
 public class OpportunityDetailsPage extends TestBase {
 
-    @FindBy(xpath="//h2[text()='Opportunity Detail']")
+    @FindBy(xpath = "//h2[text()='Opportunity Detail']")
     WebElement OpportunityDetail_Label;
 
-    @FindBy(xpath="//input[@name='edit' and @type='button']")
+    @FindBy(xpath = "//input[@name='edit' and @type='button']")
     WebElement EditBtn;
 
-    public OpportunityDetailsPage()
-    {
+    @FindBy(xpath = "//input[@name='edit' and @type='button']")
+    WebElement OpportunityName_Element;
+
+    public OpportunityDetailsPage() {
         PageFactory.initElements(driver, this);
     }
 
-    public boolean ValidateOpportunityDetailLabel()
-    {
-        TestUtil.WaitForElementToBeVisible(driver,OpportunityDetail_Label,50);
+    public boolean ValidateOpportunityDetailLabel() {
+        TestUtil.WaitForElementToBeVisible(driver, OpportunityDetail_Label, 50);
         return OpportunityDetail_Label.isDisplayed();
     }
 
-    public boolean ValidateVisibilityofEditButton()
-    {
-        TestUtil.WaitForElementToBeVisible(driver,EditBtn,50);
+    public boolean ValidateVisibilityofEditButton() {
+        TestUtil.WaitForElementToBeVisible(driver, EditBtn, 50);
         return EditBtn.isDisplayed();
     }
 
-    public OpportunityEditPage ClickOnEditButton()
-    {
+    public OpportunityEditPage ClickOnEditButton() {
         EditBtn.click();
         return new OpportunityEditPage();
     }
+
+    public String StoreOpportunityName() {
+
+        TestUtil.WaitForElementToBeVisible(driver, OpportunityName_Element, 50);
+        String OpptyName = OpportunityName_Element.getText();
+        return OpptyName;
+
+    }
+
 }

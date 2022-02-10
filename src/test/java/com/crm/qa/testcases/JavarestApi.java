@@ -1,5 +1,7 @@
 package com.crm.qa.testcases;
 import java.io.InputStreamReader;
+
+import com.crm.qa.pages.*;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.cookie.CookiePolicy;
@@ -12,6 +14,7 @@ import org.apache.http.client.methods.HttpPatch;
 import org.apache.http.entity.StringEntity;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import org.testng.Assert;
 
 public class  JavarestApi {
     private static final String clientId = "3MVG9snqYUvtJB1PKIJxVBRpflRE0Q495wXobanO3kUm8cG2R1Ish36RELP0vMqJmOMYj3yJKFcagbj8Dd3Gi";
@@ -25,7 +28,8 @@ public class  JavarestApi {
     private static String accessToken = "";
     private static String instanceUrl = "";
 
-    public static void main(String ar[]) {
+
+    public static void main(String arr[]) {
         System.out.println("----------getting a token---------");
 
         tokenUrl = environment + "/services/oauth2/token";
@@ -60,7 +64,7 @@ public class  JavarestApi {
         }
     }
 
-    private String createLead(String instanceUrl, String accessToken) throws Exception {
+    public String createLead(String instanceUrl, String accessToken) throws Exception {
         System.out.println("----------start lead--------");
         HttpClient httpclient = new HttpClient();
         JSONObject lead = new JSONObject();
@@ -68,10 +72,10 @@ public class  JavarestApi {
         String prospectId = "";
 
         try {
-            lead.put("customerFirstName", "Kbc");
-            lead.put("customerLastName", "Kbc");
-            lead.put("customerStreet", "32840 S Folklore Loop");
-            lead.put("customerFullAddress", "32840 S Folklore Loop, Union City, CA 94587");
+            lead.put("customerFirstName", "BSF");
+            lead.put("customerLastName", "BSF");
+            lead.put("customerStreet", "32842 S Folklore Loop");
+            lead.put("customerFullAddress", "32842 S Folklore Loop, Union City, CA 94587");
             lead.put("janUsage", "900");
             lead.put("febUsage", "900");
             lead.put("marUsage", "900");
@@ -212,6 +216,7 @@ public class  JavarestApi {
             System.out.println(e);
         }
         System.out.println("----------end Design Request Creation--------\n\n");
+
 
         return prospectId;
 

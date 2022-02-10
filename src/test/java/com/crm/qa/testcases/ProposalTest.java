@@ -17,6 +17,9 @@ public class ProposalTest extends TestBase {
     SelectObjectRecordTypePage RecTypePage;
     ProposalEditPage propEditpage;
     ProposalDetailsPage propDetailspage;
+    JavarestApi javarestapi;
+    OpportunityDetailsPage opptydetailspage;
+    String OpprtunityName;
 
 
     public ProposalTest()
@@ -25,10 +28,17 @@ public class ProposalTest extends TestBase {
     }
 
   @BeforeClass
-    public void Setup() throws InterruptedException {
-       initialization();
+    public void Setup() throws Exception {
+
+        javarestapi = new JavarestApi();
+        //String Prosp = javarestapi.createLead("","");
+        //homepage.PerformGlobalSearch(Prosp);
+        OpprtunityName = opptydetailspage.StoreOpportunityName();
+
+        initialization();
         loginpage = new LoginPage();
         homepage = loginpage.login(prop.getProperty("Username"), prop.getProperty("Password"));
+
     }
 
     @Test(priority = 1, description="Creates a new Proposal",enabled= true)
